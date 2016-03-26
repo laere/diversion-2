@@ -1,0 +1,43 @@
+.content  {
+  background-color: $whitegrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  height: auto;
+
+  .contentListItem {
+    display: inline-block;
+    padding: 32px;
+    font-size: 1.35rem;
+    &:hover {
+      animation: growOnHover 0.2s ease-out;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .contentListItemFloatLeft {
+    float: right;
+  }
+
+  .streamsList, .videosList {
+    margin-top: 260px;
+    padding-left: 290px;
+  }
+
+  .gamesList {
+    margin-top: 260px;
+    padding-left: 370px;
+  }
+
+  @keyframes growOnHover {
+    50% {
+      transform: scale(1.1);
+    }
+
+    100% {
+      transform: scale(1.2);
+    }
+  }
+
+}

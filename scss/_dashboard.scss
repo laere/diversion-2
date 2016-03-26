@@ -1,0 +1,48 @@
+.dashboard {
+  background-color: $darkblack;
+  min-height: 92vh;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  width: 200px;
+  z-index: 2;
+
+  .dashboardName {
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  .dashboardLink {
+    padding: 48px;
+    width: 200px;
+    &:hover {
+      cursor: pointer;
+      i, .dashboardName {
+        color: $white;
+      }
+    }
+  }
+
+  .DashboardLinkWrapper {
+    display: block;
+  }
+
+  .DashboardLinkWrapper:hover, .DashboardLinkWrapper--active {
+    .streamsLink {
+      background-color: $lightgreen;
+    }
+    .gamesLink {
+      background-color: $red;
+    }
+    .videosLink {
+      background-color: $lightpurple;
+    }
+    .usersLink {
+      background-color: $darkpurple;
+    }
+    .channelsLink {
+      background-color: $gold;
+    }
+  }
+}
