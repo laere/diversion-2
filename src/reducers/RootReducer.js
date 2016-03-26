@@ -14,7 +14,6 @@ const rootReducer = combineReducers({
   games: GamesReducer,
   videos: VideosReducer,
   channels: ChannelsReducer,
-  users: UsersReducer,
   input: InputReducer
 });
 
