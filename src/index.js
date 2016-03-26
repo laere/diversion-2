@@ -32,7 +32,7 @@ render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/diversion-2" component={App} >
-        <IndexRoute component={Home} />
+        <Route path="home" component={Home} />
         <Route path="streams" component={Streams} />
         <Route path="games" component={Games} />
         <Route path="videos" component={Videos} />
