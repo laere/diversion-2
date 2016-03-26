@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+require('./scss/main.scss');
 
 module.exports = {
   devtool: 'source-map',
@@ -32,7 +33,7 @@ module.exports = {
     },
     {
       test: /\.scss$/,
-      loaders: 'style!css!sass'
+      loader: ['style', 'css', 'sass']
     }]
   }
 };

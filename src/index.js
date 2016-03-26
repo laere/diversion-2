@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 //  STORE METHODS
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
@@ -22,13 +22,13 @@ import rootReducer from './reducers/RootReducer';
 // Store with middleware.
 const createStoreWithMiddleware = compose(
   applyMiddleware(Thunk, Promise),
-  window.devToolsExtension ? window.devToolsExtension() : f => f
+  window.devToolsExtension ? window.devToolsExtension() : (f) => f
 )(createStore);
 const store = createStoreWithMiddleware(rootReducer);
 // Sync history with store
 const history = syncHistoryWithStore(browserHistory, store);
 
-ReactDOM.render(
+render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App} >
