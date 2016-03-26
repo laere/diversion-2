@@ -24,12 +24,12 @@ const createStoreWithMiddleware = compose(
 )(createStore);
 const store = createStoreWithMiddleware(rootReducer);
 
-const basePath = location.hostname === 'localhost' ? '/' : '/diversion-2/'
+// const basePath = location.hostname === 'localhost' ? '/' : '/diversion-2/'
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path={basePath} component={App} >
+      <Route path='/' component={App} >
         <IndexRoute component={Home} />
         <Route path="streams" component={Streams} />
         <Route path="games" component={Games} />
