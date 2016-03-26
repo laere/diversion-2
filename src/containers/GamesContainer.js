@@ -13,7 +13,7 @@ class GamesContainer extends React.Component {
   componentWillMount() {
   const { dispatch, games } = this.props;
   if (!games.data) {
-    dispatch(videosFetchActions.fetch({endpoint: 'https://api.twitch.tv/kraken/games/top?limit=100'}));
+    dispatch(gamesFetchActions.fetch({endpoint: 'https://api.twitch.tv/kraken/games/top?limit=100'}));
   }
 }
 

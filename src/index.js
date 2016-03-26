@@ -8,7 +8,6 @@ import Thunk from 'redux-thunk';
 import Promise from 'redux-promise';
 // ROUTING METHODS
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
 // CONTAINERS
 import App from './app/app';
 import Home from './components/Home';
@@ -25,12 +24,11 @@ const createStoreWithMiddleware = compose(
   window.devToolsExtension ? window.devToolsExtension() : (f) => f
 )(createStore);
 const store = createStoreWithMiddleware(rootReducer);
-// Sync history with store
-const history = syncHistoryWithStore(browserHistory, store);
+
 
 render(
   <Provider store={store}>
-    <Router history={history}>
+    <Router history={browserHistory}>
       <Route path="/" component={App} >
         <IndexRoute component={Home} />
         <Route path="streams" component={Streams} />

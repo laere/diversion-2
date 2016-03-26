@@ -14,7 +14,7 @@ class StreamsContainer extends React.Component {
   componentWillMount() {
   const { dispatch, streams } = this.props;
   if (!streams.data) {
-    dispatch(videosFetchActions.fetch({ endpoint:'https://api.twitch.tv/kraken/streams?limit=100'}));
+    dispatch(vstreamsFetchActions.fetch({ endpoint:'https://api.twitch.tv/kraken/streams?limit=100'}));
   }
 }
 
