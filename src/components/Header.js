@@ -5,7 +5,7 @@ const Header = ({ onChange, onClick }) => {
   return (
     <header>
       <div className="mainHeader">
-        <IndexLink to='/diversion-2'>
+        <IndexLink to='/'>
           <h1 className='logo'>Diversion</h1>
         </IndexLink>
         <div>
