@@ -27,7 +27,7 @@ const store = createStoreWithMiddleware(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
       <Route path="/diversion-2/" component={App} >
         <IndexRoute component={Home} />
         <Route path="streams" component={Streams} />
