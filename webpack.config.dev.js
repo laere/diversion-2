@@ -30,7 +30,7 @@ module.exports = {
     },
     {
       test: /\.scss$/,
-      loader: ['style', 'css', 'sass']
+      loader: ['style', 'css?sourceMap', 'sass?sourceMap']
     }]
   }
 };
