@@ -29,13 +29,12 @@ const store = createStoreWithMiddleware(rootReducer);
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={App} >
+      <Route path="/diversion-2" component={App} >
         <IndexRoute component={Home} />
         <Route path="streams" component={Streams} />
         <Route path="games" component={Games} />
         <Route path="videos" component={Videos} />
         <Route path="channels" component={Channels} />
-        <Route path="users" component={Users} />
       </Route>
     </Router>
   </Provider>,
