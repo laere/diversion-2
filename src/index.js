@@ -7,7 +7,7 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import Thunk from 'redux-thunk';
 import Promise from 'redux-promise';
 // ROUTING METHODS
-import { Router, Route, browserHistory, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 // CONTAINERS
 import App from './app/app';
 import Home from './components/Home';
@@ -23,7 +23,6 @@ const createStoreWithMiddleware = compose(
   window.devToolsExtension ? window.devToolsExtension() : (f) => f
 )(createStore);
 const store = createStoreWithMiddleware(rootReducer);
-
 
 ReactDOM.render(
   <Provider store={store}>
