@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 class FetchActionCreators {
-  constructor(endpoint, actions) {
+  constructor(actions) {
     const [REQUEST, SUCCESS, FAILURE] = actions;
 
     this.actions = {
@@ -9,14 +9,14 @@ class FetchActionCreators {
       SUCCESS,
       FAILURE,
     };
-    this.endpoint = endpoint;
+
   }
 
   fetch({endpoint, params}) {
     return (dispatch) => {
       dispatch(this.request());
 
-      return axios.get(endpoint || this.endpoint , { params })
+      return axios.get(endpoint, { params })
         .then(res => {
           dispatch(this.receive(this.actions.SUCCESS, res.data));
         })

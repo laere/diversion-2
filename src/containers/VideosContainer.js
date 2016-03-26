@@ -10,12 +10,12 @@ class VideosContainer extends React.Component {
     videos: PropTypes.object.isRequired
   };
 
-  componentDidMount() {
-    const { dispatch, videos } = this.props;
-    if (!videos.fetching && !videos.data) {
-      dispatch(videosFetchActions.fetch('https://api.twitch.tv/kraken/videos/top?limit=100'));
-    }
+  componentWillMount() {
+  const { dispatch, videos } = this.props;
+  if (!videos.data) {
+    dispatch(videosFetchActions.fetch({endpoint:  'https://api.twitch.tv/kraken/videos/top?limit=100'}));
   }
+}
 
   render() {
     const { videos } = this.props;

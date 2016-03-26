@@ -1,7 +1,7 @@
 class FetchReducerPrototype {
   static initialState = {
     data: null,
-    fetching: false,
+    fetching: true,
     receivedAt: null,
   };
 

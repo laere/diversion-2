@@ -10,12 +10,12 @@ class GamesContainer extends React.Component {
     games: PropTypes.object.isRequired
   };
 
-  componentDidMount() {
-    const { dispatch, games } = this.props;
-    if (!games.fetching && !games.data) {
-      dispatch(gamesFetchActions.fetch('https://api.twitch.tv/kraken/games/top?limit=100'));
-    }
+  componentWillMount() {
+  const { dispatch, games } = this.props;
+  if (!games.data) {
+    dispatch(videosFetchActions.fetch({endpoint: 'https://api.twitch.tv/kraken/games/top?limit=100'}));
   }
+}
 
   render() {
     const { games } = this.props;
