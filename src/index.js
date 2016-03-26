@@ -15,7 +15,6 @@ import Games from './containers/GamesContainer';
 import Streams from './containers/StreamsContainer';
 import Videos from './containers/VideosContainer';
 import Channels from './containers/ChannelsContainer';
-import Users from './containers/UsersContainer';
 //REDUCERS
 import rootReducer from './reducers/RootReducer';
 // Store with middleware.
