@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-require('./scss/main.scss');
+
 
 module.exports = {
   // or devtool: 'eval' to debug issues with compiled output:
@@ -30,7 +30,7 @@ module.exports = {
     },
     {
       test: /\.scss$/,
-      loader: ['style', 'css?sourceMap', 'sass?sourceMap']
+      loader: 'style!css!sass'
     }]
   }
 };
