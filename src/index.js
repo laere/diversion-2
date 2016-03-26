@@ -7,7 +7,7 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import Thunk from 'redux-thunk';
 import Promise from 'redux-promise';
 // ROUTING METHODS
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 // CONTAINERS
 import App from './app/app';
 import Home from './components/Home';
@@ -24,10 +24,12 @@ const createStoreWithMiddleware = compose(
 )(createStore);
 const store = createStoreWithMiddleware(rootReducer);
 
+const basePath = location.hostname === 'localhost' ? '/' : '/diversion-2/'
+
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={hashHistory}>
-      <Route path="/" component={App} >
+    <Router history={browserHistory}>
+      <Route path={basePath} component={App} >
         <IndexRoute component={Home} />
         <Route path="streams" component={Streams} />
         <Route path="games" component={Games} />
