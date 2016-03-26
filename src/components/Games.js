@@ -8,7 +8,7 @@ export default class Games extends Component {
   render() {
     const { games } = this.props;
     const gamesData = games.data.top;
-    let gamesItems = gamesData.map((game, index) => {
+    let gamesItems = games.data.top.map((game, index) => {
       return (
         <GamesListItem
           key={index}
