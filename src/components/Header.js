@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { IndexLink } from 'react-router';
 
 const Header = ({ onChange, onClick }) => {
   return (
     <header>
       <div className="mainHeader">
-        <Link to='home'>
+        <IndexLink to='/diversion-2'>
           <h1 className='logo'>Diversion</h1>
-        </Link>
+        </IndexLink>
         <div>
           <button onClick={onClick} className="searchbarBtn">
             <i className="fa fa-search"></i>
