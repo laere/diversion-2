@@ -5,7 +5,7 @@ const Header = ({ onChange, onClick }) => {
   return (
     <header>
       <div className="mainHeader">
-        <Link to='/'>
+        <Link to='/diversion-2'>
           <h1 className='logo'>Diversion</h1>
         </Link>
         <div>
