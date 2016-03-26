@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 //  STORE METHODS
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
@@ -25,7 +25,7 @@ const createStoreWithMiddleware = compose(
 const store = createStoreWithMiddleware(rootReducer);
 
 
-render(
+ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/diversion-2/" component={App} >
