@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   input: ''
 }
 
-export const getChannelInput = new InputActionCreator([GET_CHANNEL_INPUT]);
+export const getChannelInput = new InputActionCreator( [GET_CHANNEL_INPUT] );
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {

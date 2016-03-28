@@ -1,3 +1,26 @@
 .homeContainer {
-  
+  height: 100vh;
+  padding-top: 260px;
+
+
+  .homeContent {
+    width: 600px;
+    margin: 0 auto;
+  }
+
+  .diversionTag, a {
+    text-decoration: underline;
+    margin-right: 12px;
+  }
+
+  p {
+    text-align: justify;
+    padding-bottom: 24px;
+  }
+
+  h2 {
+    text-align: center;
+    padding-bottom: 24px;
+  }
+
 }
