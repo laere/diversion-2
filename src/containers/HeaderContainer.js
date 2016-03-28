@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import { getChannelInput } from '../reducers/InputReducer';
 import { connect } from 'react-redux';
 import { channelsFetchActions } from '../reducers/ChannelsReducer';
+import Loading from '../components/Loading';
 
 class HeaderContainer extends React.Component {
   static propTypes = {
@@ -24,8 +25,8 @@ class HeaderContainer extends React.Component {
 
   handleOnClick() {
     console.log('test test');
-    const { getInput, input } = this.props;
-    getInput(input);
+    // const { getInput, input } = this.props;
+    // getInput(input);
   }
 
   render() {

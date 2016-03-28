@@ -10,17 +10,10 @@ class ChannelsContainer extends React.Component {
     channels: PropTypes.object.isRequired
   };
 
-  // componentWillMount() {
-  //   const { dispatch, channels } = this.props;
-  //   if (!channels.data) {
-  //     dispatch(channelsFetchActions.fetch({endpoint: 'https://api.twitch.tv/kraken/channels/imaqtpie'}));
-  //   }
-  // }
-
   render() {
     const { channels } = this.props;
     return !channels.data ?
-      <Loading name='Loading...'/> :
+      <Loading name='Enter a channel name...'/> :
       <Channels channels={channels} />;
   }
 }
