@@ -14,7 +14,6 @@ class HeaderContainer extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleOnClick = this.handleOnClick.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
   }
 
@@ -23,19 +22,12 @@ class HeaderContainer extends React.Component {
     getChannelInput(e.target.value);
   }
 
-  handleOnClick() {
-    console.log('test test');
-    // const { getInput, input } = this.props;
-    // getInput(input);
-  }
-
   render() {
     const { input } = this.props;
     return (
       <Header
         input={input}
-        onChange={this.handleOnChange}
-        onClick={this.handleOnClick} />
+        onChange={this.handleOnChange} />
       );
     }
   }

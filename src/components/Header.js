@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { IndexLink } from 'react-router';
 
-const Header = ({ onChange, onClick }) => {
+const Header = ({ onChange }) => {
   return (
     <header>
       <div className="mainHeader">
@@ -9,15 +9,17 @@ const Header = ({ onChange, onClick }) => {
           <h1 className='logo'>Diversion</h1>
         </IndexLink>
         <div>
-          <button onClick={onClick} className="searchbarBtn">
-            <i className="fa fa-search"></i>
-          </button>
-          <div className="searchbar">
-            <input
-              type="text"
-              placeholder="Search..."
-              onChange={onChange} />
-          </div>
+          <form>
+            <button className="searchbarBtn">
+              <i className="fa fa-search"></i>
+            </button>
+            <div className="searchbar">
+              <input
+                type="text"
+                placeholder="Search..."
+                onChange={onChange} />
+            </div>
+          </form>
         </div>
       </div>
     </header>
@@ -25,8 +27,7 @@ const Header = ({ onChange, onClick }) => {
 }
 
 Header.propTypes = {
-  onChange: React.PropTypes.func.isRequired,
-  onClick: React.PropTypes.func.isRequired
+  onChange: React.PropTypes.func.isRequired
 }
 
 export default Header;

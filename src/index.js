@@ -15,6 +15,7 @@ import Games from './containers/GamesContainer';
 import Streams from './containers/StreamsContainer';
 import Videos from './containers/VideosContainer';
 import Channels from './containers/ChannelsContainer';
+import Search from './components/Search';
 //REDUCERS
 import rootReducer from './reducers/RootReducer';
 // Store with middleware.
@@ -35,6 +36,7 @@ ReactDOM.render(
         <Route path="games" component={Games} />
         <Route path="videos" component={Videos} />
         <Route path="channels" component={Channels} />
+        <Route path="search" component={Search} />
       </Route>
     </Router>
   </Provider>,

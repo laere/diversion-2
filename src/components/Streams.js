@@ -9,11 +9,6 @@ export default class Streams extends Component {
     const { streams, input } = this.props;
     const streamsData = streams.data.streams;
 
-    // let streamItems = streamsData.filter(stream => {
-    //   console.log(input);
-    //   return stream.channel.game.toLowerCase().indexOf(input);
-    // });
-
     let streamItems = streamsData.map((stream, index) => {
       return (
         <StreamsListItem
@@ -28,7 +23,7 @@ export default class Streams extends Component {
         />
       );
     })
-    
+
     return (
       <MainContent>
         <Heading style="streamsHeader header" header="Streams"/>

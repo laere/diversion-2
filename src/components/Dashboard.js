@@ -33,13 +33,13 @@ export default class Dashboard extends Component  {
                     bgColor={'#E7B03D'}
                     fontColor={'#fff'}
                     />
-                {/*<DashboardLink
+                <DashboardLink
                     style="dashboardLink usersLink"
-                    type="users"
-                    icon="fa fa-users fa-2x"
+                    type="search"
+                    icon="fa fa-search fa-2x"
                     bgColor={'#774C60'}
                     fontColor={'#fff'}
-                    />*/}
+                    />
             </div>
         );
     }
