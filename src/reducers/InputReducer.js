@@ -1,7 +1,6 @@
 import InputActionCreator from '../utils/InputActionCreator';
 
 export const GET_CHANNEL_INPUT = 'GET_CHANNEL_INPUT';
-export const GET_SEARCH_INPUT = 'GET_SEARCH_INPUT';
 
 
 const INITIAL_STATE = {
@@ -9,17 +8,11 @@ const INITIAL_STATE = {
 }
 
 export const getChannelInput = new InputActionCreator( [GET_CHANNEL_INPUT] );
-export const getSearchInput = new InputActionCreator( [GET_SEARCH_INPUT] );
-
+export const getStreamsSearchResults = new InputActionCreator( [GET_CHANNEL_INPUT] );
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
     case GET_CHANNEL_INPUT:
-      return Object.assign({}, state, {
-        input: action.payload
-      });
-      console.log(state);
-    case GET_SEARCH_INPUT:
       return Object.assign({}, state, {
         input: action.payload
       });

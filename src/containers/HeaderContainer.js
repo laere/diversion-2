@@ -1,16 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import Header from '../components/Header';
-import { getChannelInput, getSearchInput } from '../reducers/InputReducer';
+import { getChannelInput, getStreamsSearchResults } from '../reducers/InputReducer';
 import { connect } from 'react-redux';
-import { channelsFetchActions, searchFetchActions } from '../reducers/ChannelsReducer';
+import { channelsFetchActions } from '../reducers/ChannelsReducer';
+import { searchFetchActions } from '../reducers/SearchReducer';
 import { actions } from '../reducers/InputReducer';
 import Loading from '../components/Loading';
 
 class HeaderContainer extends React.Component {
   static propTypes = {
     input: PropTypes.object.isRequired,
-    channels: PropTypes.object.isRequired,
-    getChannelInput: PropTypes.func.isRequired
+    getChannelInput: PropTypes.func.isRequired,
+    getStreamsSearchResults: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -19,7 +20,8 @@ class HeaderContainer extends React.Component {
   }
 
   handleOnChange(e) {
-    const { getChannelInput, getSearchInput } = this.props;
+    const { getStreamsSearchResults, getChannelInput } = this.props;
+    getStreamsSearchResults(e.target.value);
     getChannelInput(e.target.value);
   }
 
@@ -42,8 +44,8 @@ class HeaderContainer extends React.Component {
   function mapDispatchToProps(dispatch) {
     return {
       getChannelInput: (input) => dispatch(channelsFetchActions.fetch({endpoint: `https://api.twitch.tv/kraken/channels/${input}`})),
-      getStreamsSearchResults: (input) => dispatch(searchFetchActions.fetch( {endpoint: `https://api.twitch.tv/kraken/search/streams?q=${input}`} )),
-      getGamesSearchResults: (input) => dispatch(searchFetchActions.fetch( {endpoint: `https://api.twitch.tv/kraken/search/games?q=${input}`} ))
+      getStreamsSearchResults: (input) => dispatch(searchFetchActions.fetch( {endpoint: `https://api.twitch.tv/kraken/search/streams?q=${input}`} ))
+      // getGamesSearchResults: (input) => dispatch(searchFetchActions.fetch( {endpoint: `https://api.twitch.tv/kraken/search/games?q=${input}`} ))
     }
   }
 

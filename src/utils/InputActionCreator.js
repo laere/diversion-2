@@ -1,5 +1,6 @@
 
 class InputActionCreator {
+  
   constructor(actions) {
     const [ INPUT ] = actions;
 
