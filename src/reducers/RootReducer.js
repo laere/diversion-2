@@ -5,14 +5,15 @@ import VideosReducer from './VideosReducer';
 import GamesReducer from './GamesReducer';
 import ChannelsReducer from './ChannelsReducer'
 import InputReducer from './InputReducer';
-
+import SearchReducer from './SearchReducer';
 
 const rootReducer = combineReducers({
   streams: StreamsReducer,
   games: GamesReducer,
   videos: VideosReducer,
   channels: ChannelsReducer,
-  input: InputReducer
+  input: InputReducer,
+  searchResults: SearchReducer
 });
 
 export default rootReducer;

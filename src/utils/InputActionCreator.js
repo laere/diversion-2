@@ -1,14 +1,14 @@
 
 class InputActionCreator {
   constructor(actions) {
-    const [ GET_INPUT ] = actions;
+    const [ INPUT ] = actions;
 
-    this.actions = { GET_INPUT };
+    this.actions = { INPUT };
   }
 
   receiveInput(input) {
     return (dispatch) => {
-      type: this.actions.GET_INPUT,
+      type: this.actions.INPUT,
       input
     }
   }

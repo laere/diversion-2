@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Header from '../components/Header';
-import { getChannelInput } from '../reducers/InputReducer';
+import { getChannelInput, getSearchInput } from '../reducers/InputReducer';
 import { connect } from 'react-redux';
-import { channelsFetchActions } from '../reducers/ChannelsReducer';
+import { channelsFetchActions, searchFetchActions } from '../reducers/ChannelsReducer';
+import { actions } from '../reducers/InputReducer';
 import Loading from '../components/Loading';
 
 class HeaderContainer extends React.Component {
@@ -18,7 +19,7 @@ class HeaderContainer extends React.Component {
   }
 
   handleOnChange(e) {
-    const { getChannelInput } = this.props;
+    const { getChannelInput, getSearchInput } = this.props;
     getChannelInput(e.target.value);
   }
 
@@ -34,14 +35,15 @@ class HeaderContainer extends React.Component {
 
   function mapStateToProps(state) {
     return {
-      channels: state.channels,
       input: state.input
     }
   }
 
   function mapDispatchToProps(dispatch) {
     return {
-      getChannelInput: (input) => dispatch(channelsFetchActions.fetch({endpoint: `https://api.twitch.tv/kraken/channels/${input}`}))
+      getChannelInput: (input) => dispatch(channelsFetchActions.fetch({endpoint: `https://api.twitch.tv/kraken/channels/${input}`})),
+      getStreamsSearchResults: (input) => dispatch(searchFetchActions.fetch( {endpoint: `https://api.twitch.tv/kraken/search/streams?q=${input}`} )),
+      getGamesSearchResults: (input) => dispatch(searchFetchActions.fetch( {endpoint: `https://api.twitch.tv/kraken/search/games?q=${input}`} ))
     }
   }
 

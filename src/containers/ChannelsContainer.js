@@ -6,7 +6,6 @@ import { channelsFetchActions } from '../reducers/ChannelsReducer';
 
 class ChannelsContainer extends React.Component {
   static propTypes = {
-    dispatch: PropTypes.func.isRequired,
     channels: PropTypes.object.isRequired
   };
 
@@ -20,8 +19,7 @@ class ChannelsContainer extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    channels: state.channels,
-    input: state.input
+    channels: state.channels
   }
 }
 
