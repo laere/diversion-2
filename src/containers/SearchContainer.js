@@ -2,18 +2,17 @@ import React, { PropTypes } from 'react';
 import Search from '../components/Search';
 import Loading from '../components/Loading';
 import { connect } from 'react-redux';
-import { searchFetchActions } from '../reducers/SearchReducer';
 
 class SearchContainer extends React.Component {
   static propTypes = {
-    searchResults: PropTypes.string.isRequired
+    searchResults: PropTypes.object.isRequired
   };
 
   render() {
     const { searchResults } = this.props;
     return !searchResults.data ?
-      <Loading name="Search for games or streams!" /> :
-      <Search searchResults={searchResults}/>
+      <Loading name='Search for your favorite streams!'/> :
+      <Search searchResults={searchResults} />;
     }
   }
 

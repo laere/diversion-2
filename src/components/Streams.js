@@ -4,11 +4,9 @@ import Heading from '../components/Heading';
 import StreamsListItem from '../components/StreamsListItem';
 
 export default class Streams extends Component {
-
   render() {
-    const { streams, input } = this.props;
+    const { streams } = this.props;
     const streamsData = streams.data.streams;
-
     let streamItems = streamsData.map((stream, index) => {
       return (
         <StreamsListItem

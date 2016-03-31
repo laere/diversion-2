@@ -24,11 +24,8 @@ class HeaderContainer extends React.Component {
   }
 
   render() {
-    const { input } = this.props;
     return (
-      <Header
-        input={input}
-        onChange={this.handleOnChange} />
+      <Header onChange={this.handleOnChange} />
       );
     }
   }

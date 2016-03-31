@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Channels from '../components/Channels';
 import Loading from '../components/Loading';
 import { connect } from 'react-redux';
-import { channelsFetchActions } from '../reducers/ChannelsReducer';
 
 class ChannelsContainer extends React.Component {
   static propTypes = {
@@ -12,7 +11,7 @@ class ChannelsContainer extends React.Component {
   render() {
     const { channels } = this.props;
     return !channels.data ?
-      <Loading name='Enter a channel name...'/> :
+      <Loading name='Enter a channel name!'/> :
       <Channels channels={channels} />;
   }
 }
