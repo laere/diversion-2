@@ -3,6 +3,7 @@ import Games from '../components/Games';
 import Loading from '../components/Loading';
 import { connect } from 'react-redux';
 import { gamesFetchActions } from '../reducers/GamesReducer';
+import { GAMES_URL } from '../endpoints/endpoints';
 
 class GamesContainer extends React.Component {
   static propTypes = {
@@ -13,7 +14,7 @@ class GamesContainer extends React.Component {
   componentWillMount() {
   const { dispatch, games } = this.props;
   if (!games.data) {
-    dispatch(gamesFetchActions.fetch({endpoint: 'https://api.twitch.tv/kraken/games/top?limit=100'}));
+    dispatch(gamesFetchActions.fetch(GAMES_URL));
   }
 }
 

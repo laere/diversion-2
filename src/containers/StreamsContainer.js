@@ -3,18 +3,18 @@ import Streams from '../components/Streams';
 import Loading from '../components/Loading';
 import { connect } from 'react-redux';
 import { streamsFetchActions } from '../reducers/StreamsReducer';
+import { STREAMS_URL } from '../endpoints/endpoints';
 
 class StreamsContainer extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
-    streams: PropTypes.object.isRequired,
-    input: PropTypes.object.isRequired
+    streams: PropTypes.object.isRequired
   };
 
   componentWillMount() {
   const { dispatch, streams } = this.props;
   if (!streams.data) {
-    dispatch(streamsFetchActions.fetch({ endpoint:'https://api.twitch.tv/kraken/streams?limit=100'}));
+    dispatch(streamsFetchActions.fetch(STREAMS_URL));
   }
 }
 
@@ -22,14 +22,13 @@ class StreamsContainer extends React.Component {
     const { streams, input } = this.props;
     return streams.fetching ?
       <Loading name='Loading...'/> :
-      <Streams streams={streams} input={input}/>;
+      <Streams streams={streams}/>;
   }
 }
 
 function mapStateToProps(state) {
   return {
-    streams: state.streams,
-    input: state.input
+    streams: state.streams
   }
 }
 

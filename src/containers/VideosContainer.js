@@ -3,6 +3,7 @@ import Videos from '../components/Videos';
 import Loading from '../components/Loading';
 import { connect } from 'react-redux';
 import { videosFetchActions } from '../reducers/VideosReducer';
+import { VIDEOS_URL } from '../endpoints/endpoints';
 
 class VideosContainer extends React.Component {
   static propTypes = {
@@ -13,7 +14,7 @@ class VideosContainer extends React.Component {
   componentWillMount() {
   const { dispatch, videos } = this.props;
   if (!videos.data) {
-    dispatch(videosFetchActions.fetch({endpoint:  'https://api.twitch.tv/kraken/videos/top?limit=100'}));
+    dispatch(videosFetchActions.fetch(VIDEOS_URL));
   }
 }
 

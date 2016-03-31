@@ -1,6 +1,6 @@
 
 class InputActionCreator {
-  
+
   constructor(actions) {
     const [ INPUT ] = actions;
 
@@ -11,7 +11,7 @@ class InputActionCreator {
     return (dispatch) => {
       type: this.actions.INPUT,
       input
-    }
+    };
   }
 
 }

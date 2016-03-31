@@ -12,7 +12,7 @@ class SearchContainer extends React.Component {
   render() {
     const { searchResults } = this.props;
     return !searchResults.data ?
-      <Loading name="Search for games, streams, and channels!" /> :
+      <Loading name="Search for games or streams!" /> :
       <Search searchResults={searchResults}/>
     }
   }
