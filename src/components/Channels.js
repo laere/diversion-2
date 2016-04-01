@@ -29,11 +29,11 @@ export default class Channels extends Component {
 
 Channels.propTypes = {
   channels: PropTypes.object.isRequired,
-  game: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  logo: PropTypes.string.isRequired,
-  viewers: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  followers:PropTypes.string.isRequired
+  game: PropTypes.string,
+  status: PropTypes.string,
+  url: PropTypes.string,
+  logo: PropTypes.string,
+  viewers: PropTypes.string,
+  name: PropTypes.string,
+  followers:PropTypes.string
 }

@@ -16,8 +16,7 @@ export default class Search extends Component {
           name={stream.channel.display_name}
           viewers={stream.viewers}
           followers={stream.channel.followers}
-          views={stream.channel.views}
-        />
+          views={stream.channel.views} /> 
       );
     });
 

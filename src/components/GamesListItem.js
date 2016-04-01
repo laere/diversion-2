@@ -15,9 +15,9 @@ const GamesListItem = ({ key, name, viewers, image }) => {
 };
 
 GamesListItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  viewers: PropTypes.number.isRequired
+  name: PropTypes.string,
+  image: PropTypes.string,
+  viewers: PropTypes.number
 }
 
 export default GamesListItem;

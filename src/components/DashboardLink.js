@@ -20,11 +20,11 @@ const DashboardLink = (props) => {
 };
 
 DashboardLink.propTypes = {
-    style: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
-    bgColor: PropTypes.string.isRequired,
-    fontColor: PropTypes.string.isRequired
+    style: PropTypes.string,
+    type: PropTypes.string,
+    icon: PropTypes.string,
+    bgColor: PropTypes.string,
+    fontColor: PropTypes.string
 }
 
 export default DashboardLink;

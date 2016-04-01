@@ -9,8 +9,8 @@ const Heading = (props) => {
 };
 
 Heading.propTypes = {
-  style: PropTypes.string.isRequired,
-  header: PropTypes.string.isRequired
+  style: PropTypes.string,
+  header: PropTypes.string
 }
 
 export default Heading;
