@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const Heading = (props) => {
   return (
@@ -7,5 +7,10 @@ const Heading = (props) => {
     </div>
   );
 };
+
+Heading.propTypes = {
+  style: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired
+}
 
 export default Heading;

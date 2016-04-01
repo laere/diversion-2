@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import MainContent from '../components/MainContent';
 import Heading from '../components/Heading';
 import StreamsListItem from '../components/StreamsListItem';
@@ -34,12 +34,12 @@ export default class Streams extends Component {
 };
 
 Streams.propTypes = {
-  streams: React.PropTypes.object,
-  game: React.PropTypes.string,
-  name: React.PropTypes.string,
-  url: React.PropTypes.string,
-  image: React.PropTypes.string,
-  views: React.PropTypes.number,
-  followers: React.PropTypes.number,
-  viewers: React.PropTypes.number
+  streams: PropTypes.object,
+  game: PropTypes.string,
+  name: PropTypes.string,
+  url: PropTypes.string,
+  image: PropTypes.string,
+  views: PropTypes.number,
+  followers: PropTypes.number,
+  viewers: PropTypes.number
 };

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import MainContent from '../components/MainContent';
 import Heading from '../components/Heading';
 import StreamsListItem from '../components/StreamsListItem';

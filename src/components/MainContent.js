@@ -8,5 +8,4 @@ export default class MainContent extends Component {
       </div>
     );
   }
-
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 const GamesListItem = ({ key, name, viewers, image }) => {
   return (
@@ -13,5 +13,11 @@ const GamesListItem = ({ key, name, viewers, image }) => {
     </div>
   );
 };
+
+GamesListItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  viewers: PropTypes.number.isRequired
+}
 
 export default GamesListItem;

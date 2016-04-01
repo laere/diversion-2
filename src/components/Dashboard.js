@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import DashboardLink from '../components/DashboardLink';
 
 export default class Dashboard extends Component  {

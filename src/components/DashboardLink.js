@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 const DashboardLink = (props) => {
@@ -18,5 +18,13 @@ const DashboardLink = (props) => {
     );
 
 };
+
+DashboardLink.propTypes = {
+    style: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    bgColor: PropTypes.string.isRequired,
+    fontColor: PropTypes.string.isRequired
+}
 
 export default DashboardLink;

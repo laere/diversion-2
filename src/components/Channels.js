@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import MainContent from '../components/MainContent';
 import Heading from '../components/Heading';
-import ChannelsListItem from '../components/ChannelsListItem';
 
 export default class Channels extends Component {
   render() {
@@ -26,4 +25,15 @@ export default class Channels extends Component {
       </MainContent>
     );
   }
+}
+
+Channels.propTypes = {
+  channels: PropTypes.object.isRequired,
+  game: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  logo: PropTypes.string.isRequired,
+  viewers: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  followers:PropTypes.string.isRequired
 }
