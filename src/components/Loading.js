@@ -8,4 +8,8 @@ const Loading = (props) => {
   );
 };
 
+Loading.propTypes = {
+  name: PropTypes.string
+}
+
 export default Loading;

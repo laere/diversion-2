@@ -34,7 +34,7 @@ export default class Streams extends Component {
 };
 
 Streams.propTypes = {
-  streams: PropTypes.object,
+  streams: PropTypes.object.isRequired,
   game: PropTypes.string,
   name: PropTypes.string,
   url: PropTypes.string,

@@ -28,3 +28,10 @@ export default class Games extends Component {
     );
   }
 }
+
+Games.propTypes = {
+  games: PropTypes.object.isRequired,
+  name: PropTypes.string,
+  image: PropTypes.string,
+  viewers: PropTypes.number
+};

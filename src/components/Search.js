@@ -31,3 +31,14 @@ export default class Search extends Component {
     );
   };
 }
+
+Search.propTypes = {
+  searchResults: PropTypes.object.isRequired,
+  game: PropTypes.string,
+  name: PropTypes.string,
+  url: PropTypes.string,
+  image: PropTypes.string,
+  views: PropTypes.number,
+  followers: PropTypes.number,
+  viewers: PropTypes.number
+};

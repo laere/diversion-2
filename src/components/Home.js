@@ -5,10 +5,7 @@ export default class HomeContainer extends Component {
   render() {
     return (
       <div className="homeContainer">
-        <Heading
-          style="homeHeader header"
-          header="Home"
-          />
+        <Heading style="homeHeader header" header="Home" />
         <div className="homeContent">
           <h2>Welcome to Diversion!</h2>
 

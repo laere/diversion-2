@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import MainContent from '../components/MainContent';
 import Heading from '../components/Heading';
 import VideosListItem from '../components/VideosListItem';
@@ -32,4 +32,13 @@ export default class Videos extends Component {
       </MainContent>
     );
   }
+};
+
+Videos.propTypes = {
+  videos: PropTypes.object.isRequired,
+  title: PropTypes.string,
+  link: PropTypes.string,
+  name: PropTypes.string,
+  image: PropTypes.string,
+  views: PropTypes.number,
 };

@@ -44,3 +44,11 @@ export default class Dashboard extends Component  {
         );
     }
 }
+
+Dashboard.propTypes = {
+    style: PropTypes.string,
+    type: PropTypes.string,
+    icon: PropTypes.string,
+    bgColor: PropTypes.string,
+    fontColor: PropTypes.string
+}
