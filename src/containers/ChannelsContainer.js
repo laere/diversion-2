@@ -11,7 +11,7 @@ class ChannelsContainer extends React.Component {
   render() {
     const { channels } = this.props;
     return !channels.data ?
-      <Loading name='Enter a channel name!'/> :
+      <Loading name='Search for your favorite channel!'/> :
       <Channels channels={channels} />;
   }
 }

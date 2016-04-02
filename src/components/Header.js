@@ -9,17 +9,15 @@ const Header = ({ onChange }) => {
           <h1 className='logo'>Diversion</h1>
         </IndexLink>
         <div>
-          <form>
-            <button className="searchbarBtn">
-              <i className="fa fa-search"></i>
-            </button>
-            <div className="searchbar">
-              <input
-                type="text"
-                placeholder="Search..."
-                onChange={onChange} />
-            </div>
-          </form>
+          <button className="searchbarBtn">
+            <i className="fa fa-search"></i>
+          </button>
+          <div className="searchbar">
+            <input
+              type="text"
+              placeholder="Search..."
+              onChange={onChange} />
+          </div>
         </div>
       </div>
     </header>
