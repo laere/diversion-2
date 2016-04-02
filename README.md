@@ -2,7 +2,9 @@
 
 <ul>
 <li>Add lazy loading data</li>
-<li>Add an endpoints folder</li> **DONE**
+<li>Add animations</li> <b>DONE</b>
+<li>Find a way to avoid animations that uses React.cloneElement</li>
+<li>Add an endpoints folder</li> <b>DONE</b>
 <li>Import each components scss file into it's relative component(maybe)</li>
 <li>Get back to using browser history over hash for routing</li>
 <li>work on search feature for twitch's games/streams search api endpoints</li>
