@@ -8,12 +8,12 @@ export default class Videos extends Component {
   render() {
     const { videos } = this.props;
     const videosData = videos.data.videos;
-    let videosItems = videosData.map((video, index) => {
+    let videosItems = videosData.map((video) => {
       let shortenTitle = video.title.slice(0, 30) + '...';
       let newTitle = video.title.length > 30 ? shortenTitle : video.title;
       return (
         <VideosListItem
-          key={index}
+          key={video._id}
           title={newTitle}
           link={video.url}
           image={video.preview}

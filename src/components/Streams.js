@@ -7,10 +7,10 @@ export default class Streams extends Component {
   render() {
     const { streams } = this.props;
     const streamsData = streams.data.streams;
-    let streamItems = streamsData.map((stream, index) => {
+    let streamItems = streamsData.map((stream) => {
       return (
         <StreamsListItem
-          key={index}
+          key={stream._id}
           game={stream.channel.game}
           image={stream.preview.medium}
           url={stream.channel.url}
