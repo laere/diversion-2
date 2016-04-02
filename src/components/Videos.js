@@ -36,6 +36,7 @@ export default class Videos extends Component {
 
 Videos.propTypes = {
   videos: PropTypes.object.isRequired,
+  key: PropTypes.string,
   title: PropTypes.string,
   link: PropTypes.string,
   name: PropTypes.string,

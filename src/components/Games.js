@@ -31,6 +31,7 @@ export default class Games extends Component {
 
 Games.propTypes = {
   games: PropTypes.object.isRequired,
+  key: PropTypes.string,
   name: PropTypes.string,
   image: PropTypes.string,
   viewers: PropTypes.number
