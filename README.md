@@ -7,7 +7,7 @@
 <li>Add an endpoints folder <b>DONE</b></li>
 <li>Import each components scss file into it's relative component(maybe)</li>
 <li>Get back to using browser history over hash for routing <b>DONE</b></li>
-<li>work on search feature for twitch's games/streams search api endpoints</li>
+<li>work on search feature for twitch's streams search api endpoints <b>DONE</b></li>
 <li>Add a dummy login authentication landing page, make it so users have to typ in 8char username and password, for fun, make it bypassable with an option</li>
 <li>Improve performance, code design, and structuring</li>
 </ul>
