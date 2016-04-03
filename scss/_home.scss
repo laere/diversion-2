@@ -1,28 +1,41 @@
-.homeContainer {
-  height: 100vh;
-  padding-top: 74px;
-  @media only screen and (max-width: 1400px) {
-    padding: 0;
-  }
 
-  .homeContent {
-    width: 600px;
-    margin: 0 auto;
-  }
+.homeContent {
+  width: 600px;
+  margin: 0 auto;
+}
 
-  .diversionTag, a {
-    text-decoration: underline;
-    margin-right: 12px;
-  }
+.diversionTag, a {
+  text-decoration: underline;
+  margin-right: 12px;
+}
 
-  p {
-    text-align: justify;
-    padding-bottom: 24px;
+p {
+  text-align: justify;
+  padding-bottom: 24px;
+}
+
+h2 {
+  text-align: center;
+  padding-bottom: 24px;
+}
+
+@media only screen and (max-width: 1024px) {
+  p, a, span {
+    font-size: 1.5rem;
   }
 
   h2 {
-    text-align: center;
-    padding-bottom: 24px;
+    font-size: 2rem;
   }
 
+  .homeContent {
+    padding: 32px;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .homeContent {
+    padding: 40px;
+  }
 }
