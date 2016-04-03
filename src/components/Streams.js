@@ -18,16 +18,16 @@ export default class Streams extends Component {
           viewers={stream.viewers}
           followers={stream.channel.followers}
           views={stream.channel.views}
-        />
+          />
       );
     })
 
     return (
       <MainContent>
         <Heading style="streamsHeader header" header="Streams"/>
-          <ul className="streamsList">
-            {streamItems}
-          </ul>
+        <ul className="streamsList">
+          {streamItems}
+        </ul>
       </MainContent>
     );
   }

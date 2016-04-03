@@ -12,24 +12,24 @@ class StreamsContainer extends React.Component {
   };
 
   componentWillMount() {
-  const { dispatch, streams } = this.props;
-  if (!streams.data) {
-    dispatch(streamsFetchActions.fetch(STREAMS_URL));
+    const { dispatch, streams } = this.props;
+    if (!streams.data) {
+      dispatch(streamsFetchActions.fetch(STREAMS_URL));
+    }
   }
-}
 
   render() {
     const { streams } = this.props;
     return streams.fetching ?
-      <Loading name='Loading...'/> :
+    <Loading name='Loading...'/> :
       <Streams streams={streams}/>;
+    }
   }
-}
 
-function mapStateToProps(state) {
-  return {
-    streams: state.streams
+  function mapStateToProps(state) {
+    return {
+      streams: state.streams
+    }
   }
-}
 
-export default connect(mapStateToProps)(StreamsContainer);
+  export default connect(mapStateToProps)(StreamsContainer);

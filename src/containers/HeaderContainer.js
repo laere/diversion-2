@@ -26,21 +26,21 @@ class HeaderContainer extends React.Component {
   render() {
     return (
       <Header onChange={this.handleOnChange} />
-      );
-    }
+    );
   }
+}
 
-  function mapStateToProps(state) {
-    return {
-      input: state.input
-    }
+function mapStateToProps(state) {
+  return {
+    input: state.input
   }
+}
 
-  function mapDispatchToProps(dispatch) {
-    return {
-      searchChannels: (input) => dispatch(channelsFetchActions.fetch({endpoint: `https://api.twitch.tv/kraken/channels/${input}`})),
-      searchStreams: (input) => dispatch(searchFetchActions.fetch({endpoint: `https://api.twitch.tv/kraken/search/streams?limit=100&type=suggest&q=${input}&`}))
-    }
+function mapDispatchToProps(dispatch) {
+  return {
+    searchChannels: (input) => dispatch(channelsFetchActions.fetch({endpoint: `https://api.twitch.tv/kraken/channels/${input}`})),
+    searchStreams: (input) => dispatch(searchFetchActions.fetch({endpoint: `https://api.twitch.tv/kraken/search/streams?limit=100&type=suggest&q=${input}&`}))
   }
+}
 
-  export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);

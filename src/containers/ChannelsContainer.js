@@ -13,13 +13,13 @@ class ChannelsContainer extends React.Component {
     return !channels.data ?
       <Loading name='Search for your favorite channel!'/> :
       <Channels channels={channels} />;
+    }
   }
-}
 
-function mapStateToProps(state) {
-  return {
-    channels: state.channels
+  function mapStateToProps(state) {
+    return {
+      channels: state.channels
+    }
   }
-}
 
-export default connect(mapStateToProps)(ChannelsContainer);
+  export default connect(mapStateToProps)(ChannelsContainer);

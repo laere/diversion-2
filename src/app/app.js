@@ -7,16 +7,16 @@ import '../../scss/main.scss';
 export default class App extends Component {
   render() {
     return (
-        <div>
-          <Header />
-          <Dashboard />
-            <ReactCSSTransitionGroup
-              transitionName='appear'
-              transitionEnterTimeout={500}
-              transitionLeaveTimeout={500}>
-                {React.cloneElement(this.props.children, {key: this.props.location.pathname})}
-            </ReactCSSTransitionGroup>
-        </div>
+      <div>
+        <Header />
+        <Dashboard />
+        <ReactCSSTransitionGroup
+          transitionName='appear'
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={500}>
+            {React.cloneElement(this.props.children, {key: this.props.location.pathname})}
+        </ReactCSSTransitionGroup>
+      </div>
     );
   }
 }

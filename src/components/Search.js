@@ -6,17 +6,17 @@ import StreamsListItem from '../components/StreamsListItem';
 export default class Search extends Component {
   render() {
     const { searchResults } = this.props;
-    let resultItems = searchResults.data.streams.map((stream, index) => {
+    let resultItems = searchResults.data.streams.map((stream) => {
       return (
         <StreamsListItem
-          key={index}
+          key={stream._id}
           game={stream.channel.game}
           image={stream.preview.medium}
           url={stream.channel.url}
           name={stream.channel.display_name}
           viewers={stream.viewers}
           followers={stream.channel.followers}
-          views={stream.channel.views} /> 
+          views={stream.channel.views} />
       );
     });
 
@@ -33,6 +33,7 @@ export default class Search extends Component {
 
 Search.propTypes = {
   searchResults: PropTypes.object.isRequired,
+  key: PropTypes.string,
   game: PropTypes.string,
   name: PropTypes.string,
   url: PropTypes.string,

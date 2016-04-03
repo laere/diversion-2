@@ -14,7 +14,7 @@ export default class Games extends Component {
           name={game.game.name}
           viewers={game.viewers}
           image={game.game.box.large}
-        />
+          />
       );
     });
 

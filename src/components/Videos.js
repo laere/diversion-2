@@ -19,16 +19,16 @@ export default class Videos extends Component {
           image={video.preview}
           name={video.channel.display_name}
           views={video.views}
-        />
+          />
       );
     });
 
     return (
       <MainContent>
         <Heading style="videosHeader header" header="Videos"/>
-          <ul className="videosList">
-            {videosItems}
-          </ul>
+        <ul className="videosList">
+          {videosItems}
+        </ul>
       </MainContent>
     );
   }
