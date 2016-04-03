@@ -29,6 +29,9 @@
     @media only screen and (max-width: 579px) {
       font-size: 1.1rem;
     }
+    @media only screen and (max-width: 430px) {
+      width: 100%;
+    }
     &:hover {
       i, .dashboardName {
         color: $white;
