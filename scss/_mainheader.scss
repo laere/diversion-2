@@ -9,7 +9,13 @@
   align-items: center;
   position: fixed;
   top: 0;
-  z-index: 9999;
+  @media only screen and (max-width: 1024px) {
+    flex-flow: column;
+    height: auto;
+    position: static;
+    margin: 0;
+    padding: 16px 0;
+  }
 
   .logo {
     font-size: 2.5rem;
@@ -29,7 +35,6 @@
       font-size: 1.5rem;
       background-color: $lightblack;
       color: $white;
-
       &:focus {
         outline: none;
         // animation: extend 0.25s ease-out;
@@ -47,7 +52,9 @@
     background-color: $lightblack;
     .fa-search {
       color: $lightgrey;
-
+    }
+    @media only screen and (max-width: 1024px) {
+      display: none;
     }
   }
 
