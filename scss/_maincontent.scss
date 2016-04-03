@@ -2,19 +2,18 @@
   padding-top: 72px;
   @media only screen and (max-width: 1400px) {
     padding: 0;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
   }
 
   .contentListItem {
-    display: inline-block;
-    padding: 24px;
+    padding: 32px;
     font-size: 1.35rem;
+    align-self: center;
     &:hover {
       animation: growOnHover 0.2s ease-out;
       animation-fill-mode: forwards;
+      @media only screen and (max-width: 430px) {
+        animation: none;
+      }
     }
   }
 
@@ -25,6 +24,9 @@
   .streamsList, .videosList {
     margin-top: 64px;
     padding-left: 290px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     @media only screen and (max-width: 1400px) {
       padding: 0;
     }
@@ -32,7 +34,10 @@
 
   .gamesList {
     margin-top: 64px;
-    padding-left: 370px;
+    padding-left: 240px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     @media only screen and (max-width: 1400px) {
       padding: 0;
     }
