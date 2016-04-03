@@ -21,20 +21,9 @@
     float: right;
   }
 
-  .streamsList, .videosList {
+  .streamsList, .videosList, .gamesList {
     margin-top: 64px;
-    padding-left: 290px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    @media only screen and (max-width: 1400px) {
-      padding: 0;
-    }
-  }
-
-  .gamesList {
-    margin-top: 64px;
-    padding-left: 240px;
+    padding-left: 220px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -47,7 +36,6 @@
     50% {
       transform: scale(1.1);
     }
-
     100% {
       transform: scale(1.2);
     }

@@ -1,7 +1,9 @@
 .homeContainer {
   height: 100vh;
   padding-top: 74px;
-
+  @media only screen and (max-width: 1400px) {
+    padding: 0;
+  }
 
   .homeContent {
     width: 600px;

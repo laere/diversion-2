@@ -10,6 +10,9 @@
     width: auto;
     min-height: 0;
   }
+  @media only screen and (max-width: 1024px) {
+    height: auto;
+  }
 
 
   .dashboardName {
@@ -23,7 +26,12 @@
     @media only screen and (max-width: 1400px) {
       display: inline-block;
     }
-
+    @media only screen and (max-width: 1024px) {
+      font-size: 1.35rem;
+    }
+    @media only screen and (max-width: 579px) {
+      font-size: 1.1rem;
+    }
     &:hover {
       i, .dashboardName {
         color: $white;
