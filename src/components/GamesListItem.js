@@ -9,7 +9,7 @@ const GamesListItem = ({ key, name, viewers, image }) => {
           <img src={image} alt="image" />
         </a>
       </div>
-      <span>{viewers}</span>
+      <span>{viewers} viewers</span>
     </div>
   );
 };
