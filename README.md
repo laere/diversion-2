@@ -8,4 +8,5 @@
 <li>work on search feature for twitch's streams search api endpoints <b>DONE</b></li>
 <li>Improve performance, code design, and structuring</li>
 <li>Find a better way of dispatching actions for input data</li>
+<li>Make app mobile friendly</li1>
 </ul>
