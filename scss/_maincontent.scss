@@ -1,12 +1,16 @@
 .content  {
-  padding-top: 74px;
+  padding-top: 72px;
   @media only screen and (max-width: 1400px) {
     padding: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
   }
 
   .contentListItem {
     display: inline-block;
-    padding: 32px;
+    padding: 24px;
     font-size: 1.35rem;
     &:hover {
       animation: growOnHover 0.2s ease-out;

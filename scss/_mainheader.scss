@@ -9,8 +9,8 @@
   align-items: center;
   position: fixed;
   top: 0;
-  @media only screen and (max-width: 1024px) {
-    flex-flow: column;
+  @media only screen and (max-width: 1400px) {
+    flex-flow: column wrap;
     height: auto;
     position: static;
     margin: 0;
@@ -35,10 +35,11 @@
       font-size: 1.5rem;
       background-color: $lightblack;
       color: $white;
+      @media only screen and (max-width: 430px) {
+        width: 250px;
+      }
       &:focus {
         outline: none;
-        // animation: extend 0.25s ease-out;
-        // animation-fill-mode: forwards;
       }
     }
   }
