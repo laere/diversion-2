@@ -1,8 +1,4 @@
 .content  {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: row wrap;
   padding-top: 74px;
   @media only screen and (max-width: 1400px) {
     padding: 0;
@@ -25,11 +21,17 @@
   .streamsList, .videosList {
     margin-top: 64px;
     padding-left: 290px;
+    @media only screen and (max-width: 1400px) {
+      padding: 0;
+    }
   }
 
   .gamesList {
     margin-top: 64px;
     padding-left: 370px;
+    @media only screen and (max-width: 1400px) {
+      padding: 0;
+    }
   }
 
   @keyframes growOnHover {
