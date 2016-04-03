@@ -3,6 +3,10 @@
   justify-content: center;
   align-items: center;
   flex-flow: row wrap;
+  padding-top: 74px;
+  @media only screen and (max-width: 1400px) {
+    padding: 0;
+  }
 
   .contentListItem {
     display: inline-block;
@@ -19,12 +23,12 @@
   }
 
   .streamsList, .videosList {
-    margin-top: 260px;
+    margin-top: 64px;
     padding-left: 290px;
   }
 
   .gamesList {
-    margin-top: 260px;
+    margin-top: 64px;
     padding-left: 370px;
   }
 

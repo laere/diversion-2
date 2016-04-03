@@ -21,7 +21,7 @@ class GamesContainer extends React.Component {
   render() {
     const { games } = this.props;
     return games.fetching ?
-    <Loading name='Loading...'/> :
+      <Loading name='Loading...'/> :
       <Games games={games}/>;
     }
   }

@@ -2,12 +2,15 @@
   background-color: $darkblack;
   min-height: 92vh;
   position: fixed;
-  left: 0;
   bottom: 0;
   text-align: center;
   width: 200px;
-  z-index: 2;
-
+  @media only screen and (max-width: 1400px) {
+    position: static;
+    width: auto;
+    min-height: 0;
+    margin-top: 68px;
+  }
   .dashboardName {
     text-decoration: none;
     font-size: 1.5rem;
@@ -16,16 +19,15 @@
   .dashboardLink {
     padding: 48px;
     width: 200px;
+    @media (max-width: 1400px) {
+      display: inline-block;
+    }
     &:hover {
       cursor: pointer;
       i, .dashboardName {
         color: $white;
       }
     }
-  }
-
-  .DashboardLinkWrapper {
-    display: block;
   }
 
   .DashboardLinkWrapper:hover, .DashboardLinkWrapper--active {
