@@ -9,16 +9,16 @@ html {
 }
 
 body {
+  background-color: $whitegrey;
+  font-family: $mainfont;
   font-size: 2rem;
   line-height: 1.5;
   letter-spacing: 1;
-  font-family: $mainfont;
-  background-color: $whitegrey;
 }
 
 img {
+    height: auto;
   max-width: 100%;
-  height: auto;
 }
 
 h2 {
@@ -32,18 +32,3 @@ p {
 a {
   text-decoration: none;
 }
-
-// div, span {
-//   box-sizing: border-box;
-//   position: relative;
-//
-//   display: flex;
-//   flex-direction: column;
-//   align-items: stretch;
-//   flex-shrink: 0;
-//   align-content: flex-start;
-//
-//   border: 0 solid black;
-//   margin: 0;
-//   padding: 0;
-// }

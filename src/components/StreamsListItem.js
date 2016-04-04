@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const StreamsListItem = ({ key, game, name, url, image, views, viewers, followers }) => {
+const StreamsListItem = ({ key, game, name, url, image, views, viewers }) => {
   return (
     <div key={key} className="contentListItem">
       <span>{game}</span>
@@ -11,7 +11,6 @@ const StreamsListItem = ({ key, game, name, url, image, views, viewers, follower
       </div>
       <div>
         <span>{viewers} viewers on <strong>{name}</strong></span>
-        <span className='contentListItemFloatLeft'>{followers} followers</span>
       </div>
     </div>
   );
@@ -23,7 +22,6 @@ StreamsListItem.propTypes = {
   url: React.PropTypes.string,
   image: React.PropTypes.string,
   views: React.PropTypes.number,
-  followers: React.PropTypes.number,
   viewers: React.PropTypes.number
 };
 

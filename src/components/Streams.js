@@ -16,7 +16,6 @@ export default class Streams extends Component {
           url={stream.channel.url}
           name={stream.channel.display_name}
           viewers={stream.viewers}
-          followers={stream.channel.followers}
           views={stream.channel.views}
           />
       );
@@ -41,6 +40,5 @@ Streams.propTypes = {
   url: PropTypes.string,
   image: PropTypes.string,
   views: PropTypes.number,
-  followers: PropTypes.number,
   viewers: PropTypes.number
 };

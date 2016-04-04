@@ -1,20 +1,25 @@
 .dashboard {
   background-color: $darkblack;
-  min-height: 92vh;
-  position: fixed;
   bottom: 0;
+  min-height: 93vh;
+  position: fixed;
   text-align: center;
   width: 200px;
   @media only screen and (max-width: 1400px) {
+    height: auto;
+    min-height: 0;
     position: static;
     width: auto;
-    min-height: 0;
-    height: auto;
+  }
+  @media only screen and (max-width: 1062px) {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
   }
 
   .dashboardName {
-    text-decoration: none;
     font-size: 1.5rem;
+    text-decoration: none;
   }
 
   .dashboardLink {
@@ -23,14 +28,13 @@
     @media only screen and (max-width: 1400px) {
       display: inline-block;
     }
-    @media only screen and (max-width: 1024px) {
-      font-size: 1.35rem;
-    }
-    @media only screen and (max-width: 579px) {
-      font-size: 1.1rem;
+    @media only screen and (max-width: 1062px) {
+      height: 100%;
+      padding: 24px;
+      width: 100%;
     }
     @media only screen and (max-width: 430px) {
-      width: 100%;
+      font-size: 1.2rem;
     }
     &:hover {
       i, .dashboardName {
@@ -40,20 +44,21 @@
   }
 
   .DashboardLinkWrapper:hover, .DashboardLinkWrapper--active {
-    .streamsLink {
-      background-color: $lightgreen;
+    .channelsLink {
+      background-color: $gold;
     }
     .gamesLink {
       background-color: $red;
     }
-    .videosLink {
-      background-color: $lightpurple;
+    .streamsLink {
+      background-color: $lightgreen;
     }
     .usersLink {
       background-color: $darkpurple;
     }
-    .channelsLink {
-      background-color: $gold;
+    .videosLink {
+      background-color: $lightpurple;
     }
   }
+
 }

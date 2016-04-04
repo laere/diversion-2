@@ -1,8 +1,8 @@
 .appear-enter {
+  opacity: 0;
   transition-duration: .5s;
   transition-property: opacity;
   transition-timing-function: ease-out;
-  opacity: 0;
 }
 
 .appear-enter.appear-enter-active {

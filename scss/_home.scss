@@ -1,22 +1,26 @@
 
 .homeContent {
-  width: 600px;
   margin: 0 auto;
+  width: 600px;
 }
 
-.diversionTag, a {
+.diversionTag {
   text-decoration: underline;
+}
+
+.homeLinks {
   margin-right: 12px;
+  text-decoration: underline;
 }
 
 p {
-  text-align: justify;
   padding-bottom: 24px;
+  text-align: justify;
 }
 
 h2 {
-  text-align: center;
   padding-bottom: 24px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1024px) {

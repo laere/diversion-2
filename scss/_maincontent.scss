@@ -1,13 +1,16 @@
 .content  {
-  padding-top: 72px;
+  padding-top: 7vh;
   @media only screen and (max-width: 1400px) {
     padding: 0;
   }
 
   .contentListItem {
-    padding: 32px;
-    font-size: 1.35rem;
     align-self: center;
+    font-size: 1.35rem;
+    padding: 32px;
+    @media only screen and (max-width: 430px) {
+      padding: 32px 48px;
+    }
     &:hover {
       animation: growOnHover 0.2s ease-out;
       animation-fill-mode: forwards;
@@ -22,11 +25,11 @@
   }
 
   .streamsList, .videosList, .gamesList {
-    margin-top: 64px;
-    padding-left: 220px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    margin-top: 64px;
+    padding-left: 200px;
     @media only screen and (max-width: 1400px) {
       padding: 0;
     }

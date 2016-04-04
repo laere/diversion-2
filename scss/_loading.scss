@@ -1,9 +1,8 @@
 .loading {
-  text-align: center;
   align-self: center;
-  padding: 256px 0;
+  padding: 156px 0 256px;
+  text-align: center;
   @media only screen and (max-width: 430px) {
     font-size: .9rem;
-    padding: 128px 0;
   }
 }
