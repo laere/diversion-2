@@ -6,12 +6,13 @@ const INITIAL_STATE = {
 }
 
 export const getInput = (input) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch({
       type: GET_INPUT,
-      input
+      payload: input
     });
   };
+  console.log(getstate());
 }
 
 export default function(state = INITIAL_STATE, action) {
