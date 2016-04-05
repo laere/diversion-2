@@ -1,3 +1,4 @@
+import dotProp from 'dot-prop-immutable';
 
 export const GET_INPUT = 'GET_INPUT';
 
@@ -18,10 +19,9 @@ export const getInput = (input) => {
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
     case GET_INPUT:
-      return Object.assign({}, state, {
-        input: action.payload
-      });
+      state = dotProp.set(state, 'input', action.payload)
       console.log(state);
+      return state;
     default:
       return state;
   }

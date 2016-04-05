@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "axios": "^0.9.1",
+    "dot-prop-immutable": "^1.1.2",
     "react": "^0.14.8",
     "react-addons-css-transition-group": "^0.14.8",
     "react-addons-perf": "^0.14.8",

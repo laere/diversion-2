@@ -9,41 +9,38 @@ class HeaderContainer extends React.Component {
   static propTypes = {
     input: PropTypes.object.isRequired,
     searchChannels: PropTypes.func.isRequired,
-    searchStreams: PropTypes.func.isRequired,
-    handleInput: PropTypes.func.isRequired
+    searchStreams: PropTypes.func.isRequired
   };
 
   constructor(props) {
     super(props);
-    this.handleOnSubmit = this.handleOnSubmit.bind(this);
+    // this.handleOnSubmit = this.handleOnSubmit.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
   }
 
   handleOnChange(e) {
-    const { handleInput } = this.props;
-    handleInput(e.target.value);
+    const { searchChannels, searchStreams } = this.props;
+    searchStreams(e.target.value);
+    searchChannels(e.target.value);
   }
 
-  handleOnSubmit(e) {
-    e.preventDefault();
-    const { searchChannels, searchStreams, input } = this.props;
-    searchChannels(input);
-    searchStreams(input);
-  }
+  // handleOnSubmit(e) {
+  //   e.preventDefault();
+  //   const { searchChannels, searchStreams, input } = this.props;
+  //   if(input === '') return;
+  //   console.log(input);
+  //   searchChannels(input);
+  //   searchStreams(input);
+  // }
 
   render() {
-    const { input } = this.props;
     return (
-      <Header
-        input={input}
-        onSubmit={this.handleOnSubmit}
-        onChange={this.handleOnChange} />
+      <Header onChange={this.handleOnChange} />
     );
   }
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     input: state.input
   }
@@ -52,8 +49,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     searchChannels: (input) => dispatch(channelsFetchActions.fetch({endpoint: `https://api.twitch.tv/kraken/channels/${input}`})),
-    searchStreams: (input) => dispatch(searchFetchActions.fetch({endpoint: `https://api.twitch.tv/kraken/search/streams?limit=100&suggest=true&live=true&q=${input}`})),
-    handleInput: (input) => dispatch(getInput(input))
+    searchStreams: (input) => dispatch(searchFetchActions.fetch({endpoint: `https://api.twitch.tv/kraken/search/streams?limit=100&suggest=true&live=true&q=${input}`}))
+    // handleInput: (input) => dispatch(getInput(input))
   }
 }
 

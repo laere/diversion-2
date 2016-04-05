@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { IndexLink } from 'react-router';
 
-const Header = ({ onChange, onSubmit, input }) => {
+const Header = ({ onChange}) => {
   return (
     <header>
       <div className="mainHeader">
@@ -9,7 +9,7 @@ const Header = ({ onChange, onSubmit, input }) => {
           <h1 className='logo'>Diversion</h1>
         </IndexLink>
         <div>
-          <form onSubmit={onSubmit}>
+          <form>
             <button className="searchbarBtn">
               <i className="fa fa-search"></i>
             </button>
@@ -17,7 +17,6 @@ const Header = ({ onChange, onSubmit, input }) => {
               <input
                 type="text"
                 placeholder="Search..."
-                value={input}
                 onChange={onChange} />
             </div>
           </form>
@@ -28,9 +27,7 @@ const Header = ({ onChange, onSubmit, input }) => {
 }
 
 Header.propTypes = {
-  onChange: React.PropTypes.func.isRequired,
-  onSubmit: React.PropTypes.func.isRequired,
-  input: React.PropTypes.object
+  onChange: React.PropTypes.func.isRequired
 }
 
 export default Header;
