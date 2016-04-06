@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Header from '../components/Header';
+import debounce from 'lodash.debounce';
 import { connect } from 'react-redux';
 import { channelsFetchActions } from '../reducers/ChannelsReducer';
 import { searchFetchActions } from '../reducers/SearchReducer';
@@ -13,18 +14,23 @@ class HeaderContainer extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleOnChange = this.handleOnChange.bind(this);
+    console.log(this);
+    this.handleOnChange = debounce(this.handleOnChange, 600);
   }
 
-  handleOnChange(e) {
+  getInput(e) {
+    this.handleOnChange(e.target.value)
+  }
+
+  handleOnChange(value) {
     const { searchChannels, searchStreams } = this.props;
-    searchStreams(e.target.value);
-    searchChannels(e.target.value);
+    searchChannels(value);
+    searchStreams(value);
   }
 
   render() {
     return (
-      <Header onChange={this.handleOnChange} />
+      <Header onChange={this.getInput.bind(this)} />
     );
   }
 }

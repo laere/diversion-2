@@ -9,7 +9,6 @@ class FetchActionCreators {
       SUCCESS,
       FAILURE,
     };
-
   }
 
   fetch({endpoint, params}) {

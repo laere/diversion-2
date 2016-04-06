@@ -13,21 +13,24 @@ class FetchReducerPrototype {
   reducer = (state = FetchReducerPrototype.initialState, action = {}) => {
     switch (action.type) {
       case this.actions.REQUEST:
-        return Object.assign({}, state, {
-          fetching: true,
-        });
+        return {
+          ...state,
+          fetching: true
+        }
 
       case this.actions.SUCCESS:
-        return Object.assign({}, state, {
+        return {
+          ...state,
           data: action.data,
           fetching: false,
-          receivedAt: Date.now(),
-        });
+          receivedAt: Date.now()
+        }
 
       case this.actions.FAILURE:
-        return Object.assign({}, state, {
-          fetching: false,
-        });
+        return {
+          ...state,
+          fetching: false
+        }
 
       default:
         return state;

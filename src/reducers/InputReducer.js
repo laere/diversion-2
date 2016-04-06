@@ -7,13 +7,12 @@ const INITIAL_STATE = {
 }
 
 export const getInput = (input) => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch({
       type: GET_INPUT,
       payload: input
     });
   };
-  console.log(getstate());
 }
 
 export default function(state = INITIAL_STATE, action) {
