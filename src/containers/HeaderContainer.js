@@ -16,6 +16,7 @@ class HeaderContainer extends React.Component {
     super(props);
     console.log(this);
     this.handleOnChange = debounce(this.handleOnChange, 600);
+    this.getInput = this.getInput.bind(this);
   }
 
   getInput(e) {
@@ -30,7 +31,7 @@ class HeaderContainer extends React.Component {
 
   render() {
     return (
-      <Header onChange={this.getInput.bind(this)} />
+      <Header onChange={this.getInput} />
     );
   }
 }
