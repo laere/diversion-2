@@ -4,7 +4,6 @@ import StreamsReducer from './StreamsReducer';
 import VideosReducer from './VideosReducer';
 import GamesReducer from './GamesReducer';
 import ChannelsReducer from './ChannelsReducer'
-import InputReducer from './InputReducer';
 import SearchReducer from './SearchReducer';
 
 const rootReducer = combineReducers({
@@ -12,7 +11,6 @@ const rootReducer = combineReducers({
   games: GamesReducer,
   videos: VideosReducer,
   channels: ChannelsReducer,
-  input: InputReducer,
   searchResults: SearchReducer
 });
 
