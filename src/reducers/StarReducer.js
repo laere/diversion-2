@@ -20,13 +20,15 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         starCount: state.starCount + 1,
-        isStarred: true
+        isStarred: true,
       }
     case UNSTARRED:
-      return {
-        ...state,
-        starCount: state.starCount -1,
-        isStarred: false
+      if(state.isStarred === true) {
+          return {
+          ...state,
+          starCount: state.starCount -1,
+          isStarred: false
+        }
       }
     default:
       return state;

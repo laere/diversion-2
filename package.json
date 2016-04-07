@@ -58,6 +58,6 @@
     "redux": "^3.3.1",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.0.1",
-    "redux-ui": "0.0.11"
+    "reselect": "^2.3.0"
   }
 }

@@ -7,6 +7,7 @@
 <li>Get back to using browser history over hash for routing <b>DONE</b></li>
 <li>work on search feature for twitch's streams search api endpoints <b>DONE</b></li>
 <li>Improve performance, code design, and structuring</li>
-<li>Find a better way of dispatching actions for input data</li>
+<li>Make selectors</li>
+<li>Work on app starring feature with a user starring list (similiar to app follow concept)</li>
 <li>Make app mobile friendly <b>DONE</b></li1>
 </ul>

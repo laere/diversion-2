@@ -5,7 +5,7 @@ import StreamsListItem from '../components/StreamsListItem';
 
 export default class Streams extends Component {
   render() {
-    const { streams, onClick, isStarred, starred } = this.props;
+    const { streams, onClick, isStarred } = this.props;
     const streamsData = streams.data.streams;
     let streamItems = streamsData.map((stream) => {
       return (

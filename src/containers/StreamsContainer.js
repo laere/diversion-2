@@ -24,12 +24,11 @@ class StreamsContainer extends React.Component {
   }
 
   render() {
-    const { streams, isStarred, starCount } = this.props;
+    const { streams, isStarred } = this.props;
     return streams.fetching ?
       <Loading name='Loading...'/> :
       <Streams streams={streams}
                isStarred={isStarred}
-               starCount={starCount}
                onClick={this.handleOnClick.bind(this)} />;
     }
   }
@@ -37,8 +36,7 @@ class StreamsContainer extends React.Component {
   function mapStateToProps(state) {
     return {
       streams: state.streams,
-      isStarred: state.star.isStarred,
-      starCount: state.star.starCount
+      isStarred: state.star.isStarred
     }
   }
 
