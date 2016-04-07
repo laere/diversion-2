@@ -5,7 +5,7 @@ import StreamsListItem from '../components/StreamsListItem';
 
 export default class Streams extends Component {
   render() {
-    const { streams } = this.props;
+    const { streams, onClick, isStarred, starred } = this.props;
     const streamsData = streams.data.streams;
     let streamItems = streamsData.map((stream) => {
       return (
@@ -17,13 +17,18 @@ export default class Streams extends Component {
           name={stream.channel.display_name}
           viewers={stream.viewers}
           views={stream.channel.views}
+          onClick={onClick}
+          isStarred={isStarred}
           />
       );
     })
+    console.log(this.props);
+    console.log('component rendered');
 
     return (
       <MainContent>
         <Heading style="streamsHeader header" header="Streams"/>
+        <span>Your Stars: {this.props.starCount}</span>
         <ul className="streamsList">
           {streamItems}
         </ul>

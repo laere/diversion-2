@@ -1,0 +1,22 @@
+
+
+button {
+  border: none;
+  color: $white;
+  border-radius: 5px;
+  float: right;
+  padding: 2px 8px;
+
+  &:hover {
+      opacity: .8;
+  }
+
+}
+
+.starred {
+  background-color: $red;
+}
+
+.notStarred {
+  background-color: $lightgreen;
+}
