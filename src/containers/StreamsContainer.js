@@ -18,9 +18,9 @@ class StreamsContainer extends React.Component {
     }
   }
 
-  handleOnClick() {
-    const { star } = this.props;
-    star();
+  handleOnClick(key) {
+    const { starItem, starID } = this.props;
+    starItem(key);
   }
 
   render() {
@@ -36,13 +36,14 @@ class StreamsContainer extends React.Component {
   function mapStateToProps(state) {
     return {
       streams: state.streams,
-      isStarred: state.star.isStarred
+      isStarred: state.star.isStarred,
+      starID: state.star.id
     }
   }
 
   function mapDispatchToProps(dispatch) {
     return {
-      star: () => dispatch(starAnItem()),
+      starItem: () => dispatch(starAnItem()),
       fetchStreams: () => dispatch(streamsFetchActions.fetch(STREAMS_URL))
     }
   }

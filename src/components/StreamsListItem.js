@@ -11,7 +11,7 @@ const StreamsListItem = ({ key, game, name, url, image, views, viewers, onClick,
       </div>
       <div>
         <span>{viewers} viewers on <strong>{name}</strong></span>
-        <button className={isStarred ? 'starred' : 'notStarred'} onClick={onClick}>
+        <button className={isStarred ? 'starred' : 'notStarred'} onClick={(e) => onClick(e, key)}>
           <i className="fa fa-star fa-lg"></i>
         </button>
       </div>

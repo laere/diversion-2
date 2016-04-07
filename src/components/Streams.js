@@ -22,13 +22,10 @@ export default class Streams extends Component {
           />
       );
     })
-    console.log(this.props);
-    console.log('component rendered');
 
     return (
       <MainContent>
         <Heading style="streamsHeader header" header="Streams"/>
-        <span>Your Stars: {this.props.starCount}</span>
         <ul className="streamsList">
           {streamItems}
         </ul>
