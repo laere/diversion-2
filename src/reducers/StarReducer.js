@@ -2,6 +2,7 @@ export const STARRED = 'IS_STARRED';
 export const UNSTARRED = 'UNSTARRED';
 
 const INITIAL_STATE = {
+  starredList: [],
   starCount: 0,
   isStarred: false,
   starID: 0
@@ -24,14 +25,6 @@ export default function(state = INITIAL_STATE, action) {
         starCount: state.starCount + 1,
         isStarred: true,
         starID: action.payload
-      }
-    case UNSTARRED:
-      if(state.isStarred === true) {
-          return {
-          ...state,
-          starCount: state.starCount -1,
-          isStarred: false
-        }
       }
     default:
       return state;

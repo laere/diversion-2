@@ -9,9 +9,6 @@ const Header = ({ onChange}) => {
           <h1 className='logo'>Diversion</h1>
         </IndexLink>
         <div>
-          {/*<button className="searchbarBtn">
-            <i className="fa fa-search"></i>
-          </button>*/}
           <div className="searchbar">
             <input
               type="text"
