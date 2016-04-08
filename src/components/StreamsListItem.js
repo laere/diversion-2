@@ -11,7 +11,7 @@ const StreamsListItem = ({ id, game, name, url, image, views, viewers, onClick, 
       </div>
       <div>
         <span>{viewers} viewers on <strong>{name}</strong></span>
-        <button className={starred ? 'starred' : 'notStarred'} onClick={(e) => onClick(e, {id})}>
+        <button className={starred ? 'starred' : 'notStarred'} onClick={(e) => onClick(e, id)}>
           <i className="fa fa-star fa-lg"></i>
         </button>
       </div>
@@ -20,7 +20,7 @@ const StreamsListItem = ({ id, game, name, url, image, views, viewers, onClick, 
 }
 
 StreamsListItem.propTypes = {
-    onClick: React.PropTypes.func.isRequired,
+  onClick: React.PropTypes.func.isRequired,
   game: React.PropTypes.string,
   name: React.PropTypes.string,
   url: React.PropTypes.string,

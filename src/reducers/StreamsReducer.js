@@ -1,18 +1,34 @@
-import FetchActionCreators from '../utils/FetchActionCreators';
-import FetchReducerPrototype from '../utils/FetchReducerPrototype';
+import { REQUEST, SUCCESS, FAILURE } from '../actions/StreamActions';
 
-const REQUEST_STREAMS = 'REQUEST_STREAMS';
-const RECEIVE_STREAMS_SUCCESS = 'RECEIVE_STREAMS_SUCCESS';
-const RECEIVE_STREAMS_FAILURE = 'RECEIVE_STREAMS_FAILURE';
-const STAR_STREAM = 'STAR_STREAM'
+const INITIAL_STATE = {
+  data: null,
+  fetching: true,
+  received: null
+};
 
-export const streamsFetchActions = new FetchActionCreators(
-  [
-    REQUEST_STREAMS,
-    RECEIVE_STREAMS_SUCCESS,
-    RECEIVE_STREAMS_FAILURE,
-    STAR_STREAM
-  ]
-);
-
-export default new FetchReducerPrototype(streamsFetchActions);
+export default function(state = INITIAL_STATE, action) {
+  switch(action.type) {
+    case REQUEST:
+      return {
+        ...state,
+        fetching: true
+      }
+    case SUCCESS:
+      return {
+        ...state,
+        data: action.data.streams.map(x => {
+          x['starred'] = false;
+          return x;
+        }),
+        fetching: false,
+        received: Date.now()
+      }
+    case FAILURE:
+      return {
+        ...state,
+        fetching: false
+      }
+    default:
+      return state;
+  }
+}

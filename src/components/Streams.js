@@ -6,7 +6,7 @@ import StreamsListItem from '../components/StreamsListItem';
 export default class Streams extends Component {
   render() {
     const { streams, onClick } = this.props;
-    const streamsData = streams.data.streams;
+    const streamsData = streams.data;
     let streamItems = streamsData.map((stream) => {
       return (
         <StreamsListItem

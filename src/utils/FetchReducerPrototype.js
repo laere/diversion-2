@@ -3,8 +3,6 @@ class FetchReducerPrototype {
     data: null,
     fetching: true,
     receivedAt: null,
-    starred: false,
-    starId: 0,
   };
 
   constructor({ actions }) {
@@ -35,11 +33,11 @@ class FetchReducerPrototype {
         }
 
       case this.actions.STAR:
-          return {
-            ...state,
-            starred: true,
-            starId: action.id,
-          }
+        return {
+          ...state,
+          starred: true,
+          starId: action.id,
+        }
 
       default:
         return state;

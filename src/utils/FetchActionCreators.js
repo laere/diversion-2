@@ -45,7 +45,7 @@ class FetchActionCreators {
         type: this.actions.STAR,
         id
       });
-    };
+    }
   }
 
 }
