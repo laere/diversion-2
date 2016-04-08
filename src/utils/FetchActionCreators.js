@@ -2,12 +2,13 @@ import axios from 'axios';
 
 class FetchActionCreators {
   constructor(actions) {
-    const [REQUEST, SUCCESS, FAILURE] = actions;
+    const [REQUEST, SUCCESS, FAILURE, STAR ] = actions;
 
     this.actions = {
       REQUEST,
       SUCCESS,
       FAILURE,
+      STAR
     };
   }
 
@@ -37,6 +38,18 @@ class FetchActionCreators {
       data,
     };
   }
+
+  starItem(id) {
+    return (dispatch) => {
+      dispatch({
+        type: this.actions.STAR,
+        id
+      });
+    };
+  }
+
 }
+
+
 
 export default FetchActionCreators;

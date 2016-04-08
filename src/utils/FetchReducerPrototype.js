@@ -3,6 +3,8 @@ class FetchReducerPrototype {
     data: null,
     fetching: true,
     receivedAt: null,
+    starred: false,
+    starId: 0,
   };
 
   constructor({ actions }) {
@@ -10,7 +12,7 @@ class FetchReducerPrototype {
     return this.reducer;
   }
 
-  reducer = (state = FetchReducerPrototype.initialState, action = {}) => {
+  reducer = (state = FetchReducerPrototype.initialState, action) => {
     switch (action.type) {
       case this.actions.REQUEST:
         return {
@@ -31,6 +33,13 @@ class FetchReducerPrototype {
           ...state,
           fetching: false
         }
+
+      case this.actions.STAR:
+          return {
+            ...state,
+            starred: true,
+            starId: action.id,
+          }
 
       default:
         return state;

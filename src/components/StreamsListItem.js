@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-const StreamsListItem = ({ key, game, name, url, image, views, viewers, onClick, isStarred }) => {
+const StreamsListItem = ({ id, game, name, url, image, views, viewers, onClick, starred }) => {
   return (
-    <div key={key} className="contentListItem">
+    <div className="contentListItem">
       <span>{game}</span>
       <div>
         <a href={url} target="_blank">
@@ -11,7 +11,7 @@ const StreamsListItem = ({ key, game, name, url, image, views, viewers, onClick,
       </div>
       <div>
         <span>{viewers} viewers on <strong>{name}</strong></span>
-        <button className={isStarred ? 'starred' : 'notStarred'} onClick={(e) => onClick(e, key)}>
+        <button className={starred ? 'starred' : 'notStarred'} onClick={(e) => onClick(e, {id})}>
           <i className="fa fa-star fa-lg"></i>
         </button>
       </div>
@@ -20,14 +20,13 @@ const StreamsListItem = ({ key, game, name, url, image, views, viewers, onClick,
 }
 
 StreamsListItem.propTypes = {
+    onClick: React.PropTypes.func.isRequired,
   game: React.PropTypes.string,
   name: React.PropTypes.string,
   url: React.PropTypes.string,
   image: React.PropTypes.string,
   views: React.PropTypes.number,
-  viewers: React.PropTypes.number,
-  isStarred: React.PropTypes.boolean,
-  onClick: React.PropTypes.func.isRequired
+  viewers: React.PropTypes.number
 };
 
 export default StreamsListItem;

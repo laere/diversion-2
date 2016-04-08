@@ -5,12 +5,13 @@ import StreamsListItem from '../components/StreamsListItem';
 
 export default class Streams extends Component {
   render() {
-    const { streams, onClick, isStarred } = this.props;
+    const { streams, onClick } = this.props;
     const streamsData = streams.data.streams;
     let streamItems = streamsData.map((stream) => {
       return (
         <StreamsListItem
           key={stream._id}
+          id={stream._id}
           game={stream.channel.game}
           image={stream.preview.medium}
           url={stream.channel.url}
@@ -18,7 +19,7 @@ export default class Streams extends Component {
           viewers={stream.viewers}
           views={stream.channel.views}
           onClick={onClick}
-          isStarred={isStarred}
+          starred={streams.starred}
           />
       );
     })
@@ -26,6 +27,7 @@ export default class Streams extends Component {
     return (
       <MainContent>
         <Heading style="streamsHeader header" header="Streams"/>
+        {console.log(this.props.streams.starred)}
         <ul className="streamsList">
           {streamItems}
         </ul>
@@ -36,6 +38,7 @@ export default class Streams extends Component {
 
 Streams.propTypes = {
   streams: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
   key: PropTypes.string,
   game: PropTypes.string,
   name: PropTypes.string,

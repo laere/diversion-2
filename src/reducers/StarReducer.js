@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   starredList: [],
   starCount: 0,
   isStarred: false,
-  starID: 0
+  starId: 0
 }
 
 export const starAnItem = (id) => {
@@ -24,7 +24,7 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         starCount: state.starCount + 1,
         isStarred: true,
-        starID: action.payload
+        starId: action.payload
       }
     default:
       return state;

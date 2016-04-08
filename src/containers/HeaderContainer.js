@@ -14,7 +14,6 @@ class HeaderContainer extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(this);
     this.handleOnChange = debounce(this.handleOnChange, 600);
     this.getInput = this.getInput.bind(this);
   }

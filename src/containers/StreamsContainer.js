@@ -11,6 +11,11 @@ class StreamsContainer extends React.Component {
     streams: PropTypes.object.isRequired
   };
 
+  constructor(props) {
+    super(props);
+    this.handleOnClick = this.handleOnClick.bind(this);
+  }
+
   componentWillMount() {
     const { streams, fetchStreams } = this.props;
     if (!streams.data) {
@@ -18,33 +23,31 @@ class StreamsContainer extends React.Component {
     }
   }
 
-  handleOnClick(key) {
-    const { starItem, starID } = this.props;
-    starItem(key);
+  handleOnClick(e, id) {
+    e.persist();
+    const { starAnItem } = this.props;
+    starAnItem(id);
   }
 
   render() {
-    const { streams, isStarred } = this.props;
+    const { streams } = this.props;
     return streams.fetching ?
       <Loading name='Loading...'/> :
       <Streams streams={streams}
-               isStarred={isStarred}
-               onClick={this.handleOnClick.bind(this)} />;
+               onClick={this.handleOnClick} />;
     }
   }
 
   function mapStateToProps(state) {
     return {
-      streams: state.streams,
-      isStarred: state.star.isStarred,
-      starID: state.star.id
+      streams: state.streams
     }
   }
 
   function mapDispatchToProps(dispatch) {
     return {
-      starItem: () => dispatch(starAnItem()),
-      fetchStreams: () => dispatch(streamsFetchActions.fetch(STREAMS_URL))
+      starAnItem: (id) => dispatch(streamsFetchActions.starItem(id)),
+      fetchStreams: (endpoint) => dispatch(streamsFetchActions.fetch(STREAMS_URL))
     }
   }
 
