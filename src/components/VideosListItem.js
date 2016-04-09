@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-const VideosListItem = ({ key, name, title, link, image, views }) => {
+const VideosListItem = ({ name, title, link, image, views }) => {
   return (
-    <div key={key} className="contentListItem">
+    <div className="contentListItem">
       <span>{title}</span>
       <div>
         <a href={link} target="_blank">

@@ -6,7 +6,6 @@ import GamesListItem from '../components/GamesListItem';
 export default class Games extends Component {
   render() {
     const { games } = this.props;
-    const gamesData = games.data.top;
     let gamesItems = games.data.top.map((game) => {
       return (
         <GamesListItem

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Games from '../components/Games';
 import Loading from '../components/Loading';
 import { connect } from 'react-redux';
-import { gamesFetchActions } from '../reducers/GamesReducer';
+import { fetch } from '../actions/GameActions';
 import { GAMES_URL } from '../endpoints/endpoints';
 
 class GamesContainer extends React.Component {
@@ -12,9 +12,9 @@ class GamesContainer extends React.Component {
   };
 
   componentWillMount() {
-    const { dispatch, games } = this.props;
+    const { games, dispatch } = this.props;
     if (!games.data) {
-      dispatch(gamesFetchActions.fetch(GAMES_URL));
+      dispatch(fetch(GAMES_URL))
     }
   }
 

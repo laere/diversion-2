@@ -1,16 +1,34 @@
-import FetchActionCreators from '../utils/FetchActionCreators';
-import FetchReducerPrototype from '../utils/FetchReducerPrototype';
+import dotProp from 'dot-prop-immutable';
+import { GAMES_REQUEST, GAMES_SUCCESS, GAMES_FAILURE, STAR_GAME } from '../actions/GameActions';
 
-const REQUEST_GAMES = 'REQUEST_GAMES';
-const RECEIVE_GAMES_SUCCESS = 'RECEIVE_GAMES_SUCCESS';
-const RECEIVE_GAMES_FAILURE = 'RECEIVE_GAMES_FAILURE';
+const INITIAL_STATE = {
+  data: null,
+  fetching: true,
+  received: null
+};
 
-export const gamesFetchActions = new FetchActionCreators(
-  [
-    REQUEST_GAMES,
-    RECEIVE_GAMES_SUCCESS,
-    RECEIVE_GAMES_FAILURE
-  ]
-);
-
-export default new FetchReducerPrototype(gamesFetchActions);
+export default function(state = INITIAL_STATE, action) {
+  switch(action.type) {
+    case GAMES_REQUEST:
+      return {
+        ...state,
+        fetching: true
+      }
+    case GAMES_SUCCESS:
+      return {
+        ...state,
+        data: action.data,
+        fetching: false,
+        received: Date.now()
+      }
+    case GAMES_FAILURE:
+      return {
+        ...state,
+        fetching: false
+      }
+    case STAR_GAME:
+      return state;
+    default:
+      return state;
+  }
+}

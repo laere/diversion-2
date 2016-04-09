@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
-const GamesListItem = ({ key, name, viewers, image }) => {
+const GamesListItem = ({ name, viewers, image }) => {
   return (
-    <div key={key} className="contentListItem">
+    <div className="contentListItem">
       <span>{name}</span>
       <div>
         <a href="#">

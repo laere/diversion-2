@@ -1,16 +1,31 @@
-import FetchActionCreators from '../utils/FetchActionCreators';
-import FetchReducerPrototype from '../utils/FetchReducerPrototype';
+import { SEARCH_REQUEST, SEARCH_SUCCESS, SEARCH_FAILURE } from '../actions/SearchActions';
 
-const REQUEST_SEARCH = 'REQUEST_SEARCH';
-const RECEIVE_SEARCH_SUCCESS = 'RECEIVE_SEARCH_SUCCESS';
-const RECEIVE_SEARCH_FAILURE = 'RECEIVE_SEARCH_FAILURE';
+const INITIAL_STATE = {
+  data: null,
+  fetching: true,
+  received: null
+};
 
-export const searchFetchActions = new FetchActionCreators(
-  [
-    REQUEST_SEARCH,
-    RECEIVE_SEARCH_SUCCESS,
-    RECEIVE_SEARCH_FAILURE
-  ]
-);
-
-export default new FetchReducerPrototype(searchFetchActions);
+export default function(state = INITIAL_STATE, action) {
+  switch(action.type) {
+    case SEARCH_REQUEST:
+      return {
+        ...state,
+        fetching: true
+      }
+    case SEARCH_SUCCESS:
+      return {
+        ...state,
+        data: action.data,
+        fetching: false,
+        received: Date.now()
+      }
+    case SEARCH_FAILURE:
+      return {
+        ...state,
+        fetching: false
+      }
+    default:
+      return state;
+  }
+}

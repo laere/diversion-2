@@ -19,7 +19,7 @@ export default class Streams extends Component {
           viewers={stream.viewers}
           views={stream.channel.views}
           onClick={onClick}
-          starred={streams.starred}
+          starred={stream.starred}
           />
       );
     })
@@ -40,6 +40,7 @@ Streams.propTypes = {
   streams: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired,
   key: PropTypes.string,
+  id: PropTypes.string,
   game: PropTypes.string,
   name: PropTypes.string,
   url: PropTypes.string,

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Videos from '../components/Videos';
 import Loading from '../components/Loading';
 import { connect } from 'react-redux';
-import { videosFetchActions } from '../reducers/VideosReducer';
+import { fetch } from '../actions/VideoActions';
 import { VIDEOS_URL } from '../endpoints/endpoints';
 
 class VideosContainer extends React.Component {
@@ -14,7 +14,7 @@ class VideosContainer extends React.Component {
   componentWillMount() {
   const { dispatch, videos } = this.props;
   if (!videos.data) {
-    dispatch(videosFetchActions.fetch(VIDEOS_URL));
+    dispatch(fetch(VIDEOS_URL));
   }
 }
 

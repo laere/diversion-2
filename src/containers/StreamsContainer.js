@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Streams from '../components/Streams';
 import Loading from '../components/Loading';
 import { connect } from 'react-redux';
-import { fetch } from '../actions/StreamActions';
+import { fetch, star } from '../actions/StreamActions';
 import { STREAMS_URL } from '../endpoints/endpoints';
 
 class StreamsContainer extends React.Component {
@@ -24,8 +24,8 @@ class StreamsContainer extends React.Component {
 
   handleOnClick(e, id) {
     e.persist();
-    const { starAnItem } = this.props;
-    starAnItem(id);
+    const { starStream } = this.props;
+    starStream(id);
   }
 
   render() {
@@ -45,7 +45,8 @@ class StreamsContainer extends React.Component {
 
   function mapDispatchToProps(dispatch) {
     return {
-      fetchStreams: (endpoint) => dispatch(fetch(STREAMS_URL))
+      fetchStreams: (endpoint) => dispatch(fetch(STREAMS_URL)),
+      starStream: (id) => dispatch(star(id))
     }
   }
 

@@ -1,16 +1,31 @@
-import FetchActionCreators from '../utils/FetchActionCreators';
-import FetchReducerPrototype from '../utils/FetchReducerPrototype';
+import { VIDEOS_REQUEST, VIDEOS_SUCCESS, VIDEOS_FAILURE } from '../actions/VideoActions';
 
-const REQUEST_VIDEOS = 'REQUEST_VIDEOS';
-const RECEIVE_VIDEOS_SUCCESS = 'RECEIVE_VIDEOS_SUCCESS';
-const RECEIVE_VIDEOS_FAILURE = 'RECEIVE_VIDEOS_FAILURE';
+const INITIAL_STATE = {
+  data: null,
+  fetching: true,
+  received: null
+};
 
-export const videosFetchActions = new FetchActionCreators(
-  [
-    REQUEST_VIDEOS,
-    RECEIVE_VIDEOS_SUCCESS,
-    RECEIVE_VIDEOS_FAILURE
-  ]
-);
-
-export default new FetchReducerPrototype(videosFetchActions);
+export default function(state = INITIAL_STATE, action) {
+  switch(action.type) {
+    case VIDEOS_REQUEST:
+      return {
+        ...state,
+        fetching: true
+      }
+    case VIDEOS_SUCCESS:
+      return {
+        ...state,
+        data: action.data,
+        fetching: false,
+        received: Date.now()
+      }
+    case VIDEOS_FAILURE:
+      return {
+        ...state,
+        fetching: false
+      }
+    default:
+      return state;
+  }
+}

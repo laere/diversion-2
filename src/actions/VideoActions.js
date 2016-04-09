@@ -1,23 +1,22 @@
 import axios from 'axios';
 
-export const STREAMS_REQUEST = 'STREAMS_REQUEST';
-export const STREAMS_SUCCESS = 'STREAMS_SUCCESS';
-export const STREAMS_FAILURE = 'STREAMS_FAILURE';
-export const STAR_STREAM = 'STAR_STREAM';
+export const VIDEOS_REQUEST = 'VIDEOS_REQUEST';
+export const VIDEOS_SUCCESS = 'VIDEOS_SUCCESS';
+export const VIDEOS_FAILURE = 'VIDEOS_FAILURE';
+export const STAR_VIDEO = 'STAR_VIDEO';
 
-export const star = (id, mediaType) => {
+export const star = (id) => {
   return (dispatch) => {
     dispatch({
-      type: STAR_STREAM,
-      id,
-      mediaType
+      type: STAR_VIDEO,
+      id
     })
   }
 }
 
 export const request = () => {
   return {
-    type: STREAMS_REQUEST
+    type: VIDEOS_REQUEST
   }
 }
 
@@ -35,11 +34,11 @@ export const fetch = ({endpoint}) => {
     return axios.get(endpoint)
       .then(res => {
         console.log(res);
-        dispatch(receive(STREAMS_SUCCESS, res.data));
+        dispatch(receive(VIDEOS_SUCCESS, res.data));
       })
       .catch(res => {
         console.log(res);
-        dispatch(receive(STREAMS_FAILURE));
+        dispatch(receive(VIDEOS_FAILURE));
       });
   };
 }

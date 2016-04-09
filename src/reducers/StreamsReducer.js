@@ -1,4 +1,5 @@
-import { REQUEST, SUCCESS, FAILURE } from '../actions/StreamActions';
+import dotProp from 'dot-prop-immutable';
+import { STREAMS_REQUEST, STREAMS_SUCCESS, STREAMS_FAILURE, STAR_STREAM } from '../actions/StreamActions';
 
 const INITIAL_STATE = {
   data: null,
@@ -8,12 +9,12 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
-    case REQUEST:
+    case STREAMS_REQUEST:
       return {
         ...state,
         fetching: true
       }
-    case SUCCESS:
+    case STREAMS_SUCCESS:
       return {
         ...state,
         data: action.data.streams.map(x => {
@@ -23,11 +24,13 @@ export default function(state = INITIAL_STATE, action) {
         fetching: false,
         received: Date.now()
       }
-    case FAILURE:
+    case STREAMS_FAILURE:
       return {
         ...state,
         fetching: false
       }
+    case STAR_STREAM:
+
     default:
       return state;
   }
