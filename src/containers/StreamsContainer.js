@@ -4,7 +4,6 @@ import Loading from '../components/Loading';
 import { connect } from 'react-redux';
 import { fetch, star } from '../actions/StreamActions';
 import { STREAMS_URL } from '../endpoints/endpoints';
-import { streamsSelector } from '../selectors/selectors';
 
 class StreamsContainer extends React.Component {
   static propTypes = {

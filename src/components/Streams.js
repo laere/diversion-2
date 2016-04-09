@@ -7,7 +7,7 @@ export default class Streams extends Component {
   render() {
     const { streams, onClick } = this.props;
     const streamsData = streams.data;
-    let streamItems = streamsData.map((stream) => {
+    let streamItems = streamsData.map(stream => {
       return (
         <StreamsListItem
           key={stream._id}
