@@ -8,7 +8,6 @@ import { fetchSearchResults } from '../actions/SearchActions';
 
 class HeaderContainer extends React.Component {
   static propTypes = {
-    dispatch: PropTypes.func.isRequired,
     searchChannels: PropTypes.func.isRequired,
     searchStreams: PropTypes.func.isRequired
   };
@@ -21,13 +20,12 @@ class HeaderContainer extends React.Component {
 
   getInput(e) {
     this.handleOnChange(e.target.value)
-    console.log(e.target.value);
   }
 
   handleOnChange(input) {
     const { searchChannels, searchStreams, dispatch } = this.props;
-      dispatch(searchChannels(input));
-      dispatch(searchStreams(input));
+    dispatch(searchChannels(input));
+    dispatch(searchStreams(input));
   }
 
   render() {
@@ -37,11 +35,12 @@ class HeaderContainer extends React.Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
-    searchChannels: (input) => fetchChannel({endpoint: `https://api.twitch.tv/kraken/channels/${input}`}),
-    searchStreams: (input) => fetchSearchResults({endpoint: `https://api.twitch.tv/kraken/search/streams?limit=100&suggest=true&live=true&q=${input}`})
+    searchChannels: (input) => fetchChannel({endpoint:`https://api.twitch.tv/kraken/channels/${input}`}),
+    searchStreams: (input) => fetchSearchResults({endpoint:`https://api.twitch.tv/kraken/search/streams?limit=100&suggest=true&live=true&q=${input}`})
   }
 }
+
 
 export default connect(mapDispatchToProps)(HeaderContainer);

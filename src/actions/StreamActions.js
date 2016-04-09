@@ -5,12 +5,11 @@ export const STREAMS_SUCCESS = 'STREAMS_SUCCESS';
 export const STREAMS_FAILURE = 'STREAMS_FAILURE';
 export const STAR_STREAM = 'STAR_STREAM';
 
-export const star = (id, mediaType) => {
+export const star = (id) => {
   return (dispatch) => {
     dispatch({
       type: STAR_STREAM,
-      id,
-      mediaType
+      id
     })
   }
 }
@@ -34,11 +33,23 @@ export const fetch = ({endpoint}) => {
 
     return axios.get(endpoint)
       .then(res => {
-        console.log(res);
         dispatch(receive(STREAMS_SUCCESS, res.data));
       })
       .catch(res => {
-        console.log(res);
+        dispatch(receive(STREAMS_FAILURE));
+      });
+  };
+}
+
+export const streamPagination = (nextPageUrl) => {
+  return (dispatch) => {
+    dispatch(request());
+
+    return axios.get(nextPageUrl)
+      .then(res => {
+        dispatch(receive(STREAMS_SUCCESS, res.data));
+      })
+      .catch(res => {
         dispatch(receive(STREAMS_FAILURE));
       });
   };

@@ -27,7 +27,6 @@ export default class Streams extends Component {
     return (
       <MainContent>
         <Heading style="streamsHeader header" header="Streams"/>
-        {console.log(this.props.streams.starred)}
         <ul className="streamsList">
           {streamItems}
         </ul>

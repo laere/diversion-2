@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { IndexLink } from 'react-router';
 
-const Header = ({ onChange}) => {
+const Header = ({ onChange }) => {
   return (
     <header>
       <div className="mainHeader">

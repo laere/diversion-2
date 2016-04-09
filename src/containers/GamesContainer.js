@@ -11,7 +11,7 @@ class GamesContainer extends React.Component {
     games: PropTypes.object.isRequired
   };
 
-  componentWillMount() {
+  componentDidMount() {
     const { games, dispatch } = this.props;
     if (!games.data) {
       dispatch(fetch(GAMES_URL))

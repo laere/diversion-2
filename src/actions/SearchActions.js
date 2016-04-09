@@ -17,11 +17,11 @@ export const receive = (type, data) => {
   }
 }
 
-export const fetchSearchResults = ({endpoint}) => {
+export const fetchSearchResults = ({endpoint, params}) => {
   return (dispatch) => {
     dispatch(request());
 
-    return axios.get(endpoint)
+    return axios.get(endpoint, { params })
       .then(res => {
         console.log(res);
         dispatch(receive(SEARCH_SUCCESS, res.data));

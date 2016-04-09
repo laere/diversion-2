@@ -11,7 +11,7 @@ class VideosContainer extends React.Component {
     videos: PropTypes.object.isRequired
   };
 
-  componentWillMount() {
+  componentDidMount() {
   const { dispatch, videos } = this.props;
   if (!videos.data) {
     dispatch(fetch(VIDEOS_URL));
@@ -27,7 +27,6 @@ class VideosContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     videos: state.videos
   }

@@ -4,6 +4,7 @@ import Loading from '../components/Loading';
 import { connect } from 'react-redux';
 import { fetch, star } from '../actions/StreamActions';
 import { STREAMS_URL } from '../endpoints/endpoints';
+import { streamsSelector } from '../selectors/selectors';
 
 class StreamsContainer extends React.Component {
   static propTypes = {
@@ -15,7 +16,7 @@ class StreamsContainer extends React.Component {
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { streams, fetchStreams } = this.props;
     if(!streams.data) {
       fetchStreams();
@@ -33,17 +34,19 @@ class StreamsContainer extends React.Component {
     return streams.fetching ?
       <Loading name='Loading...'/> :
       <Streams streams={streams}
+               nextPageUrl={streams.nextPageUrl}
+               pageCount={streams.pageCount}
                onClick={this.handleOnClick} />;
     }
   }
 
-  function mapStateToProps(state) {
+  const mapStateToProps = (state) => {
     return {
       streams: state.streams
     }
   }
 
-  function mapDispatchToProps(dispatch) {
+  const mapDispatchToProps = (dispatch) => {
     return {
       fetchStreams: (endpoint) => dispatch(fetch(STREAMS_URL)),
       starStream: (id) => dispatch(star(id))
