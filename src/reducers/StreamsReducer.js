@@ -8,7 +8,8 @@ const INITIAL_STATE = {
   receivedAt: null,
   nextPageUrl: null,
   pageCount: 0,
-  streamIds: []
+  streamIds: [],
+  starCount: 0
 };
 
 
@@ -44,6 +45,7 @@ export default function(state = INITIAL_STATE, action) {
       let index = state.streamIds.indexOf(action.id);
       return {
         ...state,
+        starCount: state.starCount + 1,
         data: [
           ...state.data.slice(0, index), {
             ...state.data[index],
