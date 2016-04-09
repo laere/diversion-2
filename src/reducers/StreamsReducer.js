@@ -1,6 +1,6 @@
 import { indexBy } from 'lodash';
 import dotProp from 'dot-prop-immutable';
-import { STREAMS_REQUEST, STREAMS_SUCCESS, STREAMS_FAILURE, STAR_STREAM } from '../actions/StreamActions';
+import { STREAMS_REQUEST, STREAMS_SUCCESS, STREAMS_FAILURE, STAR_STREAM, UNSTAR_STREAM } from '../actions/StreamActions';
 
 const INITIAL_STATE = {
   data: null,
@@ -46,12 +46,16 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         data: [
           ...state.data.slice(0, index), {
-            ...state.data[index], starred: true },
+            ...state.data[index],
+              starred: true
+            },
             ...state.data.slice(index + 1)
           ]
         };
       }
-      default:
+    case UNSTAR_STREAM:
+      return state;
+    default:
       return state;
     }
   }
