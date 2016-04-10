@@ -1,6 +1,4 @@
-import { indexBy } from 'lodash';
-import dotProp from 'dot-prop-immutable';
-import { STREAMS_REQUEST, STREAMS_SUCCESS, STREAMS_FAILURE, STAR_STREAM, UNSTAR_STREAM } from '../actions/StreamActions';
+import { STREAMS_REQUEST, STREAMS_SUCCESS, STREAMS_FAILURE, STAR_STREAM, UNSTAR_STREAM, NEXT_PAGE } from '../actions/StreamActions';
 
 const INITIAL_STATE = {
   data: null,
@@ -11,7 +9,6 @@ const INITIAL_STATE = {
   streamIds: [],
   starCount: 0
 };
-
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
@@ -27,13 +24,11 @@ export default function(state = INITIAL_STATE, action) {
         x['starred'] = false;
         return x;
       }),
-      streamIds: action.data.streams.map(x => {
-        return x._id;
-      }),
       fetching: false,
+      receivedAt: Date.now(),
       nextPageUrl: action.data._links.next,
       pageCount: state.pageCount + 1,
-      receivedAt: Date.now()
+      streamIds: action.data.streams.map(x => x._id)
     }
     case STREAMS_FAILURE:
     return {
@@ -56,6 +51,8 @@ export default function(state = INITIAL_STATE, action) {
         };
       }
     case UNSTAR_STREAM:
+      return state;
+    case NEXT_PAGE:
       return state;
     default:
       return state;

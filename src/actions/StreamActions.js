@@ -5,6 +5,7 @@ export const STREAMS_SUCCESS = 'STREAMS_SUCCESS';
 export const STREAMS_FAILURE = 'STREAMS_FAILURE';
 export const STAR_STREAM = 'STAR_STREAM';
 export const UNSTAR_STREAM = 'UNSTAR_STREAM';
+export const NEXT_PAGE = 'NEXT_PAGE';
 
 export const star = (id) => {
   return (dispatch) => {

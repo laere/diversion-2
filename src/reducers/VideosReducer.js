@@ -3,7 +3,8 @@ import { VIDEOS_REQUEST, VIDEOS_SUCCESS, VIDEOS_FAILURE } from '../actions/Video
 const INITIAL_STATE = {
   data: null,
   fetching: true,
-  received: null
+  received: null,
+  videoIds: []
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -18,7 +19,8 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         data: action.data,
         fetching: false,
-        received: Date.now()
+        received: Date.now(),
+        videoIds: action.data.videos.map(x => x._id)
       }
     case VIDEOS_FAILURE:
       return {

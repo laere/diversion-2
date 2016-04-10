@@ -4,7 +4,8 @@ import { GAMES_REQUEST, GAMES_SUCCESS, GAMES_FAILURE, STAR_GAME } from '../actio
 const INITIAL_STATE = {
   data: null,
   fetching: true,
-  received: null
+  received: null,
+  gameIds: []
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -19,7 +20,8 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         data: action.data,
         fetching: false,
-        received: Date.now()
+        received: Date.now(),
+        gameIds: action.data.top.map(x => x.game._id)
       }
     case GAMES_FAILURE:
       return {

@@ -30,6 +30,7 @@ export default class Streams extends Component {
         <ul className="streamsList">
           {streamItems}
         </ul>
+        <button onClick={this.props.nextPage}>Next</button>
       </MainContent>
     );
   }
