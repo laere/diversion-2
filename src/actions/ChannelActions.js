@@ -43,3 +43,19 @@ export const fetchChannel = ({endpoint}) => {
       });
   };
 }
+
+export const fetchChannelEmotes = (url) => {
+  return (dispatch) => {
+    dispatch(request());
+
+    return axios.get(url)
+      .then(res => {
+        console.log(res);
+        dispatch(receive(CHANNEL_SUCCESS, res.data));
+      })
+      .catch(res => {
+        console.log(res);
+        dispatch(receive(CHANNEL_FAILURE));
+      });
+  };
+}

@@ -27,11 +27,25 @@ export const receive = (type, data) => {
   }
 }
 
-export const fetch = ({endpoint}) => {
+export const fetchGames = ({endpoint}) => {
   return (dispatch) => {
     dispatch(request());
 
     return axios.get(endpoint)
+      .then(res => {
+        dispatch(receive(GAMES_SUCCESS, res.data));
+      })
+      .catch(res => {
+        dispatch(receive(GAMES_FAILURE));
+      });
+  };
+}
+
+export const gamePagination = (nextPageUrl) => {
+  return (dispatch) => {
+    dispatch(request());
+
+    return axios.get(nextPageUrl)
       .then(res => {
         dispatch(receive(GAMES_SUCCESS, res.data));
       })

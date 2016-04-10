@@ -5,7 +5,9 @@ const INITIAL_STATE = {
   data: null,
   fetching: true,
   received: null,
-  gameIds: []
+  gameIds: [],
+  nextPageUrl: null,
+  pageCount: 0
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -21,7 +23,9 @@ export default function(state = INITIAL_STATE, action) {
         data: action.data,
         fetching: false,
         received: Date.now(),
-        gameIds: action.data.top.map(x => x.game._id)
+        gameIds: action.data.top.map(x => x.game._id),
+        nextPageUrl: action.data._links.next,
+        pageCount: state.pageCount + 1
       }
     case GAMES_FAILURE:
       return {

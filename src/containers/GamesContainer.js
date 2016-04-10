@@ -2,19 +2,19 @@ import React, { PropTypes } from 'react';
 import Games from '../components/Games';
 import Loading from '../components/Loading';
 import { connect } from 'react-redux';
-import { fetch } from '../actions/GameActions';
+import { fetch, gamePagination } from '../actions/GameActions';
 import { GAMES_URL } from '../endpoints/endpoints';
 
 class GamesContainer extends React.Component {
   static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    games: PropTypes.object.isRequired
+    games: PropTypes.object.isRequired,
+    nextPageUrl: PropTypes.string
   };
 
   componentDidMount() {
-    const { games, dispatch } = this.props;
+    const { games, fetchGames } = this.props;
     if (!games.data) {
-      dispatch(fetch(GAMES_URL))
+      fetchGames();
     }
   }
 
@@ -28,7 +28,15 @@ class GamesContainer extends React.Component {
 
   function mapStateToProps(state) {
     return {
-      games: state.games
+      games: state.games,
+      nextPageUrl: state.games.nextPageUrl
+    }
+  }
+
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchGames: (endpoint) => dispatch(fetch(GAMES_URL)),
+      nextPage: (nextPageUrl) => dispatch(gamePagination(nextPageUrl))
     }
   }
 

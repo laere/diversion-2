@@ -20,7 +20,7 @@ const StreamsListItem = ({ id, game, name, url, image, views, viewers, onClick, 
 }
 
 StreamsListItem.propTypes = {
-  onClick: React.PropTypes.func.isRequired,
+  onClick: React.PropTypes.func,
   game: React.PropTypes.string,
   name: React.PropTypes.string,
   url: React.PropTypes.string,

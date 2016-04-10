@@ -7,7 +7,13 @@ import { STREAMS_URL } from '../endpoints/endpoints';
 
 class StreamsContainer extends React.Component {
   static propTypes = {
-    streams: PropTypes.object.isRequired
+    streams: PropTypes.object.isRequired,
+    nextPageUrl: PropTypes.string,
+    featuredStreamsUrl: PropTypes.string,
+    fetchStreams: PropTypes.func.isRequired,
+    starStream: PropTypes.func.isRequired,
+    nextPage: PropTypes.func.isRequired,
+    fetchFeaturedStreams: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -25,31 +31,30 @@ class StreamsContainer extends React.Component {
   }
 
   handleStarClick(e, id) {
-    e.persist();
     const { starStream } = this.props;
     starStream(id);
   }
 
   handleNextPageClick(e) {
-    e.persist();
     const { nextPage, nextPageUrl } = this.props;
     nextPage(nextPageUrl);
   }
 
   handleFeaturedStreamsClick(e) {
-    e.persist();
-    const { featuredStreamsUrl, featured } = this.props;
-    featured(featuredStreamsUrl);
+    const { featuredStreamsUrl, fetchFeaturedStreams } = this.props;
+    fetchFeaturedStreams(featuredStreamsUrl);
   }
 
   render() {
     const { streams, nextPage, featured} = this.props;
     return streams.fetching ?
       <Loading name='Loading...'/> :
-      <Streams streams={streams}
-               featured={this.handleFeaturedStreamsClick}
-               nextPage={this.handleNextPageClick}
-               onClick={this.handleStarClick} />;
+      <Streams
+        streams={streams}
+        featured={this.handleFeaturedStreamsClick}
+        nextPage={this.handleNextPageClick}
+        onClick={this.handleStarClick}
+      />;
     }
   }
 
@@ -66,7 +71,7 @@ class StreamsContainer extends React.Component {
       fetchStreams: (endpoint) => dispatch(fetch(STREAMS_URL)),
       starStream: (id) => dispatch(star(id)),
       nextPage: (nextPageUrl) => dispatch(streamPagination(nextPageUrl)),
-      featured: (featuredStreamsUrl) => dispatch(featuredStreams(featuredStreamsUrl))
+      fetchFeaturedStreams: (featuredStreamsUrl) => dispatch(featuredStreams(featuredStreamsUrl))
     }
   }
 
