@@ -65,3 +65,17 @@ export const streamPagination = (nextPageUrl) => {
       });
   };
 }
+
+export const featuredStreams = (url) => {
+  return (dispatch) => {
+    dispatch(request());
+
+    return axios.get(url)
+      .then(res => {
+        dispatch(receive(STREAMS_SUCCESS, res.data));
+      })
+      .catch(res => {
+        dispatch(receive(STREAMS_FAILURE));
+      });
+  };
+}

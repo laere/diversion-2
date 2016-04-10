@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   fetching: true,
   receivedAt: null,
   nextPageUrl: null,
+  featuredStreams: null,
   pageCount: 0,
   streamIds: [],
   starCount: 0
@@ -27,6 +28,7 @@ export default function(state = INITIAL_STATE, action) {
       fetching: false,
       receivedAt: Date.now(),
       nextPageUrl: action.data._links.next,
+      featuredStreams: action.data._links.featured,
       pageCount: state.pageCount + 1,
       streamIds: action.data.streams.map(x => x._id)
     }

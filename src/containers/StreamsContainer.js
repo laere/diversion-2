@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Streams from '../components/Streams';
 import Loading from '../components/Loading';
 import { connect } from 'react-redux';
-import { fetch, star, streamPagination } from '../actions/StreamActions';
+import { fetch, star, streamPagination, featuredStreams } from '../actions/StreamActions';
 import { STREAMS_URL } from '../endpoints/endpoints';
 
 class StreamsContainer extends React.Component {
@@ -14,6 +14,7 @@ class StreamsContainer extends React.Component {
     super(props);
     this.handleStarClick = this.handleStarClick.bind(this);
     this.handleNextPageClick = this.handleNextPageClick.bind(this);
+    this.handleFeaturedStreamsClick = this.handleFeaturedStreamsClick.bind(this);
   }
 
   componentDidMount() {
@@ -35,11 +36,18 @@ class StreamsContainer extends React.Component {
     nextPage(nextPageUrl);
   }
 
+  handleFeaturedStreamsClick(e) {
+    e.persist();
+    const { featuredStreamsUrl, featured } = this.props;
+    featured(featuredStreamsUrl);
+  }
+
   render() {
-    const { streams, nextPage} = this.props;
+    const { streams, nextPage, featured} = this.props;
     return streams.fetching ?
       <Loading name='Loading...'/> :
       <Streams streams={streams}
+               featured={this.handleFeaturedStreamsClick}
                nextPage={this.handleNextPageClick}
                onClick={this.handleStarClick} />;
     }
@@ -48,7 +56,8 @@ class StreamsContainer extends React.Component {
   const mapStateToProps = (state) => {
     return {
       streams: state.streams,
-      nextPageUrl: state.streams.nextPageUrl
+      nextPageUrl: state.streams.nextPageUrl,
+      featuredStreamsUrl: state.streams.featuredStreams
     }
   }
 
@@ -56,7 +65,8 @@ class StreamsContainer extends React.Component {
     return {
       fetchStreams: (endpoint) => dispatch(fetch(STREAMS_URL)),
       starStream: (id) => dispatch(star(id)),
-      nextPage: (nextPageUrl) => dispatch(streamPagination(nextPageUrl))
+      nextPage: (nextPageUrl) => dispatch(streamPagination(nextPageUrl)),
+      featured: (featuredStreamsUrl) => dispatch(featuredStreams(featuredStreamsUrl))
     }
   }
 

@@ -31,6 +31,7 @@ export default class Streams extends Component {
           {streamItems}
         </ul>
         <button onClick={this.props.nextPage}>Next</button>
+        <button onClick={this.props.featured}>Featured</button>
       </MainContent>
     );
   }
