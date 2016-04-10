@@ -23,6 +23,7 @@ export default class Games extends Component {
         <ul className="gamesList">
           {gamesItems}
         </ul>
+        <button onClick={this.props.gamePagination}>Next</button>
       </MainContent>
     );
   }

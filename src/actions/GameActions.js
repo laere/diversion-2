@@ -27,7 +27,7 @@ export const receive = (type, data) => {
   }
 }
 
-export const fetchGames = ({endpoint}) => {
+export const fetch = ({endpoint}) => {
   return (dispatch) => {
     dispatch(request());
 
