@@ -4,19 +4,20 @@
     padding: 0;
   }
 
+  .imagePlaceholder {
+    background: url('https://static-cdn.jtvnw.net/previews-ttv/live_user_esl_ruhub_dota2_ru-320x160.jpg') center no-repeat;
+  }
+
+  .gamesImagePlaceholder {
+    background: url('https://static-cdn.jtvnw.net/ttv-static/404_boxart-272x380.jpg') center no-repeat;
+  }
+
   .contentListItem {
     align-self: center;
     font-size: 1.35rem;
     padding: 32px;
     @media only screen and (max-width: 430px) {
       padding: 32px 48px;
-    }
-    &:hover {
-      animation: growOnHover 0.2s ease-out;
-      animation-fill-mode: forwards;
-      @media only screen and (max-width: 430px) {
-        animation: none;
-      }
     }
   }
 
@@ -44,15 +45,6 @@
       background-color: $lightgrey;
       color: $white;
       padding: 4px 16px;
-    }
-  }
-
-  @keyframes growOnHover {
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1.2);
     }
   }
 

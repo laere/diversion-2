@@ -1,19 +1,16 @@
 import React, { Component, PropTypes } from 'react';
-import { Lazy } from 'react-lazy';
 
 const GamesListItem = ({ name, viewers, image }) => {
   return (
-    <Lazy nodeName="div">
-      <div className="contentListItem">
-        <span>{name}</span>
-        <div>
-          <a href="#">
-            <img src={image} alt="image" />
-          </a>
-        </div>
-        <span>{viewers} viewers</span>
+    <div className="contentListItem">
+      <span>{name}</span>
+      <div className="gamesImagePlaceholder">
+        <a href="#">
+          <img src={image} alt="image" />
+        </a>
       </div>
-    </Lazy>
+      <span>{viewers} viewers</span>
+    </div>
   );
 };
 
