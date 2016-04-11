@@ -11,7 +11,9 @@ const StreamsListItem = ({ id, game, name, url, image, views, viewers, starClick
       </div>
       <div>
         <span>{viewers} viewers on <strong>{name}</strong></span>
-        <button className={starred ? 'starred' : 'notStarred'} onClick={starred ? (e) => unstarClick(e, id) : (e) => starClick(e, id)}>
+        <button
+          className={starred ? 'starred' : 'notStarred'}
+          onClick={starred ? (id) => unstarClick(id) : (id) => starClick(id)}>
           <i className="fa fa-star fa-lg"></i>
         </button>
       </div>

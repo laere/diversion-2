@@ -12,6 +12,7 @@ class StreamsContainer extends React.Component {
     fetchStreams: PropTypes.func.isRequired,
     starStream: PropTypes.func.isRequired,
     nextPage: PropTypes.func.isRequired,
+    unStarStream: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -28,12 +29,12 @@ class StreamsContainer extends React.Component {
     }
   }
 
-  handleStarClick(e, id) {
+  handleStarClick(id) {
     const { starStream } = this.props;
     starStream(id);
   }
 
-  handleUnstarClick(e, id) {
+  handleUnstarClick(id) {
     const { unStarStream } = this.props;
     unStarStream(id);
   }

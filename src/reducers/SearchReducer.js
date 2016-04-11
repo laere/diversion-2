@@ -1,4 +1,4 @@
-import { SEARCH_REQUEST, SEARCH_SUCCESS, SEARCH_FAILURE } from '../actions/SearchActions';
+import * as actions from '../actions/SearchActions';
 
 const INITIAL_STATE = {
   data: null,
@@ -8,19 +8,19 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
-    case SEARCH_REQUEST:
+    case actions.SEARCH_REQUEST:
       return {
         ...state,
         fetching: true
       }
-    case SEARCH_SUCCESS:
+    case actions.SEARCH_SUCCESS:
       return {
         ...state,
         data: action.data,
         fetching: false,
         received: Date.now()
       }
-    case SEARCH_FAILURE:
+    case actions.SEARCH_FAILURE:
       return {
         ...state,
         fetching: false

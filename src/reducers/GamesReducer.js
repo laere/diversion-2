@@ -1,5 +1,4 @@
-import dotProp from 'dot-prop-immutable';
-import { GAMES_REQUEST, GAMES_SUCCESS, GAMES_FAILURE, STAR_GAME } from '../actions/GameActions';
+import * as actions from '../actions/GameActions';
 
 const INITIAL_STATE = {
   data: null,
@@ -12,12 +11,12 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
-    case GAMES_REQUEST:
+    case actions.GAMES_REQUEST:
       return {
         ...state,
         fetching: true
       }
-    case GAMES_SUCCESS:
+    case actions.GAMES_SUCCESS:
       return {
         ...state,
         data: action.data,
@@ -27,13 +26,11 @@ export default function(state = INITIAL_STATE, action) {
         nextPageUrl: action.data._links.next,
         pageCount: state.pageCount + 1
       }
-    case GAMES_FAILURE:
+    case actions.GAMES_FAILURE:
       return {
         ...state,
         fetching: false
       }
-    case STAR_GAME:
-      return state;
     default:
       return state;
   }
