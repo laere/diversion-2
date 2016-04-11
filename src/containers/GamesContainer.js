@@ -37,7 +37,7 @@ class GamesContainer extends React.Component {
     }
   }
 
-  function mapStateToProps(state) {
+  const mapStateToProps = (state) => {
     return {
       games: state.games,
       nextPageUrl: state.games.nextPageUrl

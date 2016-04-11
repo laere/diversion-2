@@ -16,7 +16,7 @@ class ChannelsContainer extends React.Component {
     }
   }
 
-  function mapStateToProps(state) {
+  const mapStateToProps = (state) => {
     return {
       channels: state.channels
     }

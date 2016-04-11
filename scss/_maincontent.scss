@@ -1,5 +1,5 @@
 .content  {
-  padding-top: 7vh;
+  padding-top: 67px;
   @media only screen and (max-width: 1400px) {
     padding: 0;
   }
@@ -28,10 +28,22 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    margin-top: 64px;
+    margin-top: 56px;
     padding-left: 200px;
     @media only screen and (max-width: 1400px) {
       padding: 0;
+    }
+  }
+
+  .btnWrapper {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin: 32px;
+    .nextPageBtn {
+      background-color: $lightgrey;
+      color: $white;
+      padding: 4px 16px;
     }
   }
 

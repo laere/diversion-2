@@ -12,24 +12,26 @@ export default class Games extends Component {
           key={game.game._id}
           name={game.game.name}
           viewers={game.viewers}
-          image={game.game.box.large}
-          />
+          image={game.game.box.large} />
       );
     });
 
     return (
       <MainContent>
         <Heading style="gamesHeader header" header="Games"/>
+        <div className="btnWrapper">
+          <button className="nextPageBtn" onClick={this.props.gamePagination}>Next</button>
+        </div>
         <ul className="gamesList">
           {gamesItems}
         </ul>
-        <button onClick={this.props.gamePagination}>Next</button>
       </MainContent>
     );
   }
 }
 
 Games.propTypes = {
+  gamePagination: PropTypes.func.isRequired,
   games: PropTypes.object.isRequired,
   key: PropTypes.string,
   name: PropTypes.string,

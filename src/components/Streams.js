@@ -27,11 +27,13 @@ export default class Streams extends Component {
     return (
       <MainContent>
         <Heading style="streamsHeader header" header="Streams"/>
+        <div className="btnWrapper">
+          <button className="nextPageBtn" onClick={this.props.nextPage}>Next</button>
+          {/*<button onClick={this.props.featured}>Featured</button>*/}
+        </div>
         <ul className="streamsList">
           {streamItems}
         </ul>
-        <button onClick={this.props.nextPage}>Next</button>
-        <button onClick={this.props.featured}>Featured</button>
       </MainContent>
     );
   }

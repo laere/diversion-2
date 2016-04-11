@@ -27,10 +27,10 @@ export default function(state = INITIAL_STATE, action) {
       }),
       fetching: false,
       receivedAt: Date.now(),
+      streamIds: action.data.streams.map(x => x._id),
       nextPageUrl: action.data._links.next,
       featuredStreams: action.data._links.featured,
       pageCount: state.pageCount + 1,
-      streamIds: action.data.streams.map(x => x._id)
     }
     case STREAMS_FAILURE:
     return {

@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
+import { Lazy } from 'react-lazy';
 
 const VideosListItem = ({ name, title, link, image, views }) => {
   return (
-    <div className="contentListItem">
-      <span>{title}</span>
-      <div>
-        <a href={link} target="_blank">
-          <img src={image} alt="image" />
-        </a>
+    <Lazy nodeName="div">
+      <div className="contentListItem">
+        <span>{title}</span>
+        <div>
+          <a href={link} target="_blank">
+            <img src={image} alt="image" />
+          </a>
+        </div>
+        <span>{name}</span>
+        <span className="contentListItemFloatLeft">{views}</span>
       </div>
-      <span>{name}</span>
-      <span className="contentListItemFloatLeft">{views}</span>
-    </div>
+    </Lazy>
   );
 }
 
