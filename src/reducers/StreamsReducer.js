@@ -53,6 +53,20 @@ export default function(state = INITIAL_STATE, action) {
         };
       }
     case UNSTAR_STREAM:
+    if(state.streamIds.find(id => action.id === id)) {
+      let index = state.streamIds.indexOf(action.id);
+      return {
+        ...state,
+        starCount: state.starCount + 1,
+        data: [
+          ...state.data.slice(0, index), {
+            ...state.data[index],
+              starred: false
+            },
+            ...state.data.slice(index + 1)
+          ]
+        };
+      }
       return state;
     case NEXT_PAGE:
       return state;

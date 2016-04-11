@@ -5,7 +5,7 @@ import StreamsListItem from '../components/StreamsListItem';
 
 export default class Streams extends Component {
   render() {
-    const { streams, onClick } = this.props;
+    const { streams, starClick, unstarClick } = this.props;
     let streamItems = streams.data.map(stream => {
       return (
         <StreamsListItem
@@ -17,7 +17,8 @@ export default class Streams extends Component {
           name={stream.channel.display_name}
           viewers={stream.viewers}
           views={stream.channel.views}
-          onClick={onClick}
+          starClick={starClick}
+          unstarClick={unstarClick}
           starred={stream.starred}
         />
       );
@@ -27,7 +28,6 @@ export default class Streams extends Component {
       <MainContent>
         <Heading style="streamsHeader header" header="Streams"/>
         <input type="submit" className="nextPageBtn" onClick={this.props.nextPage} value="Next" />
-        {/*<button onClick={this.props.featured}>Featured</button>*/}
         <ul className="streamsList">
           {streamItems}
         </ul>

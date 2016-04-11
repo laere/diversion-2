@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const StreamsListItem = ({ id, game, name, url, image, views, viewers, onClick, starred }) => {
+const StreamsListItem = ({ id, game, name, url, image, views, viewers, starClick, unstarClick, starred }) => {
   return (
     <div className="contentListItem">
       <span>{game}</span>
@@ -11,7 +11,7 @@ const StreamsListItem = ({ id, game, name, url, image, views, viewers, onClick, 
       </div>
       <div>
         <span>{viewers} viewers on <strong>{name}</strong></span>
-        <button className={starred ? 'starred' : 'notStarred'} onClick={(e) => onClick(e, id)}>
+        <button className={starred ? 'starred' : 'notStarred'} onClick={starred ? (e) => unstarClick(e, id) : (e) => starClick(e, id)}>
           <i className="fa fa-star fa-lg"></i>
         </button>
       </div>
