@@ -29,23 +29,21 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    margin-top: 56px;
+    margin-top: 64px;
     padding-left: 200px;
     @media only screen and (max-width: 1400px) {
       padding: 0;
     }
   }
 
-  .btnWrapper {
-    display: flex;
-    justify-content: center;
-    width: auto;
-    margin: 32px;
-    .nextPageBtn {
-      background-color: $lightgrey;
-      color: $white;
-      padding: 4px 16px;
-    }
+  .nextPageBtn {
+    border: none;
+    background-color: $lightgrey;
+    color: $white;
+    padding: 12px;
+    font-size: 2.5rem;
+    width: 100%;
   }
+
 
 }

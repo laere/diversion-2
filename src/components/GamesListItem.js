@@ -4,7 +4,7 @@ const GamesListItem = ({ name, viewers, image }) => {
   return (
     <div className="contentListItem">
       <span>{name}</span>
-      <div className="gamesImagePlaceholder">
+      <div>
         <a href="#">
           <img src={image} alt="image" />
         </a>

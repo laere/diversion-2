@@ -26,10 +26,8 @@ export default class Streams extends Component {
     return (
       <MainContent>
         <Heading style="streamsHeader header" header="Streams"/>
-        <div className="btnWrapper">
-          <button className="nextPageBtn" onClick={this.props.nextPage}>Next</button>
-          {/*<button onClick={this.props.featured}>Featured</button>*/}
-        </div>
+        <input type="submit" className="nextPageBtn" onClick={this.props.nextPage} value="Next" />
+        {/*<button onClick={this.props.featured}>Featured</button>*/}
         <ul className="streamsList">
           {streamItems}
         </ul>
