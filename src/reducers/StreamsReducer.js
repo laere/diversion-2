@@ -7,7 +7,8 @@ const INITIAL_STATE = {
   receivedAt: null,
   nextPageUrl: null,
   prevPageUrl: null,
-  streamIds: []
+  streamIds: [],
+  starredItems: []
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -37,9 +38,10 @@ export default function(state = INITIAL_STATE, action) {
       }
     case actions.STAR_STREAM:
       if(state.streamIds.find(id => action.id === id)) {
-          let index = state.streamIds.indexOf(action.id);
+        let index = state.streamIds.indexOf(action.id);
         return {
           ...state,
+          starredItems: state.starredItems.concat(state.data[index]),
           data: [
             ...state.data.slice(0, index), {
               ...state.data[index],
@@ -54,6 +56,7 @@ export default function(state = INITIAL_STATE, action) {
         let index = state.streamIds.indexOf(action.id);
         return {
           ...state,
+          starredItems: [...state.starredItems.slice(index)],
           data: [
             ...state.data.slice(0, index), {
               ...state.data[index],

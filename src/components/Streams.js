@@ -43,6 +43,8 @@ Streams.propTypes = {
   streams: PropTypes.object.isRequired,
   starClick: PropTypes.func.isRequired,
   unstarClick: PropTypes.func.isRequired,
+  nextPage: PropTypes.func.isRequired,
+  prevPage: PropTypes.func.isRequired,
   key: PropTypes.string,
   id: PropTypes.string,
   game: PropTypes.string,

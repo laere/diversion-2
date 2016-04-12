@@ -9,6 +9,7 @@ class StreamsContainer extends React.Component {
   static propTypes = {
     streams: PropTypes.object.isRequired,
     nextPageUrl: PropTypes.string,
+    prevPageUrl: PropTypes.string,
     fetchStreams: PropTypes.func.isRequired,
     starStream: PropTypes.func.isRequired,
     paginate: PropTypes.func.isRequired,

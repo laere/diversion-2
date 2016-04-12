@@ -1,3 +1,3 @@
 import { createSelector } from 'reselect';
 
-const streamsSelector = (state) => state.streams;
+export const streamsSelector = (state) => state.streams;
