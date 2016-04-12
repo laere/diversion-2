@@ -41,11 +41,11 @@ export const fetch = ({endpoint}) => {
   };
 }
 
-export const gamePagination = (nextPageUrl) => {
+export const gamePagination = (url) => {
   return (dispatch) => {
     dispatch(request());
 
-    return axios.get(nextPageUrl)
+    return axios.get(url)
       .then(res => {
         dispatch(receive(GAMES_SUCCESS, res.data));
       })

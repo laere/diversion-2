@@ -51,7 +51,7 @@ class StreamsContainer extends React.Component {
   }
 
   render() {
-    const { streams, nextPage } = this.props;
+    const { streams } = this.props;
     return streams.fetching ?
       <Loading name='Loading...'/> :
       <Streams

@@ -12,14 +12,16 @@ export default class Games extends Component {
           key={game.game._id}
           name={game.game.name}
           viewers={game.viewers}
-          image={game.game.box.large} />
+          image={game.game.box.large}
+        />
       );
     });
 
     return (
       <MainContent>
         <Heading style="gamesHeader header" header="Games"/>
-        <input type="submit" value="Next" className="pageBtn" onClick={this.props.gamePagination}/>
+        <input type="submit" value="Back" className="pageBtn" onClick={this.props.prevPage}/>
+        <input type="submit" value="Next" className="pageBtn" onClick={this.props.nextPage}/>
         <ul className="gamesList">
           {gamesItems}
         </ul>
@@ -29,7 +31,6 @@ export default class Games extends Component {
 }
 
 Games.propTypes = {
-  gamePagination: PropTypes.func.isRequired,
   games: PropTypes.object.isRequired,
   key: PropTypes.string,
   name: PropTypes.string,

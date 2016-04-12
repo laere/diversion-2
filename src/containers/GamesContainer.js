@@ -13,7 +13,8 @@ class GamesContainer extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleGamePagination = this.handleGamePagination.bind(this);
+    this.handleNextPageClick = this.handleNextPageClick.bind(this);
+    this.handlePrevPageClick = this.handlePrevPageClick.bind(this);
   }
 
   componentDidMount() {
@@ -23,9 +24,14 @@ class GamesContainer extends React.Component {
     }
   }
 
-  handleGamePagination() {
-    const { nextPageUrl, nextPage } = this.props;
-    nextPage(nextPageUrl);
+  handleNextPageClick(e) {
+    const { nextPageUrl, paginate } = this.props;
+    paginate(nextPageUrl);
+  }
+
+  handlePrevPageClick(e) {
+    const { prevPageUrl, paginate } = this.props;
+    paginate(prevPageUrl);
   }
 
   render() {
@@ -33,21 +39,23 @@ class GamesContainer extends React.Component {
     return games.fetching ?
       <Loading name='Loading...'/> :
       <Games games={games}
-             gamePagination={this.handleGamePagination}/>;
+             prevPage={this.handlePrevPageClick}
+             nextPage={this.handleNextPageClick}/>;
     }
   }
 
   const mapStateToProps = (state) => {
     return {
       games: state.games,
-      nextPageUrl: state.games.nextPageUrl
+      nextPageUrl: state.games.nextPageUrl,
+      prevPageUrl: state.games.prevPageUrl
     }
   }
 
   const mapDispatchToProps = (dispatch) => {
     return {
       fetchGames: (endpoint) => dispatch(fetch(GAMES_URL)),
-      nextPage: (nextPageUrl) => dispatch(gamePagination(nextPageUrl))
+      paginate: (url) => dispatch(gamePagination(url))
     }
   }
 
