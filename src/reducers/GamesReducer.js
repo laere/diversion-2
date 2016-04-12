@@ -1,4 +1,4 @@
-import * as actions from '../actions/GameActions';
+import { GAMES_REQUEST, GAMES_SUCCESS, GAMES_FAILURE } from '../actions/GameActions';
 
 const INITIAL_STATE = {
   data: null,
@@ -11,12 +11,12 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
-    case actions.GAMES_REQUEST:
+    case GAMES_REQUEST:
       return {
         ...state,
         fetching: true
       }
-    case actions.GAMES_SUCCESS:
+    case GAMES_SUCCESS:
       return {
         ...state,
         data: action.data,
@@ -26,7 +26,7 @@ export default function(state = INITIAL_STATE, action) {
         nextPageUrl: action.data._links.next,
         pageCount: state.pageCount + 1
       }
-    case actions.GAMES_FAILURE:
+    case GAMES_FAILURE:
       return {
         ...state,
         fetching: false

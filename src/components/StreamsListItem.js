@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 const StreamsListItem = ({ id, game, name, url, image, views, viewers, starClick, unstarClick, starred }) => {
   return (
@@ -13,7 +13,7 @@ const StreamsListItem = ({ id, game, name, url, image, views, viewers, starClick
         <span>{viewers} viewers on <strong>{name}</strong></span>
         <button
           className={starred ? 'starred' : 'notStarred'}
-          onClick={starred ? (id) => unstarClick(id) : (id) => starClick(id)}>
+          onClick={starred ? (e) => unstarClick(e, id) : (e) => starClick(e, id)}>
           <i className="fa fa-star fa-lg"></i>
         </button>
       </div>
@@ -22,13 +22,14 @@ const StreamsListItem = ({ id, game, name, url, image, views, viewers, starClick
 }
 
 StreamsListItem.propTypes = {
-  onClick: React.PropTypes.func,
-  game: React.PropTypes.string,
-  name: React.PropTypes.string,
-  url: React.PropTypes.string,
-  image: React.PropTypes.string,
-  views: React.PropTypes.number,
-  viewers: React.PropTypes.number
+  starClick: PropTypes.func.isRequired,
+  unstarClick: PropTypes.func.isRequired,
+  game: PropTypes.string,
+  name: PropTypes.string,
+  url: PropTypes.string,
+  image: PropTypes.string,
+  views: PropTypes.number,
+  viewers: PropTypes.number
 };
 
 export default StreamsListItem;

@@ -19,7 +19,7 @@ export default class Games extends Component {
     return (
       <MainContent>
         <Heading style="gamesHeader header" header="Games"/>
-        <input type="submit" value="Next" className="nextPageBtn" onClick={this.props.gamePagination}/>
+        <input type="submit" value="Next" className="pageBtn" onClick={this.props.gamePagination}/>
         <ul className="gamesList">
           {gamesItems}
         </ul>

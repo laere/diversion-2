@@ -1,4 +1,4 @@
-import * as actions from '../actions/VideoActions';
+import { VIDEOS_REQUEST, VIDEOS_SUCCESS, VIDEOS_FAILURE } from '../actions/VideoActions';
 
 const INITIAL_STATE = {
   data: null,
@@ -9,12 +9,12 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
-    case actions.VIDEOS_REQUEST:
+    case VIDEOS_REQUEST:
       return {
         ...state,
         fetching: true
       }
-    case actions.VIDEOS_SUCCESS:
+    case VIDEOS_SUCCESS:
       return {
         ...state,
         data: action.data,
@@ -22,7 +22,7 @@ export default function(state = INITIAL_STATE, action) {
         received: Date.now(),
         videoIds: action.data.videos.map(x => x._id)
       }
-    case actions.VIDEOS_FAILURE:
+    case VIDEOS_FAILURE:
       return {
         ...state,
         fetching: false

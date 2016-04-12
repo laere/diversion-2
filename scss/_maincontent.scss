@@ -36,14 +36,17 @@
     }
   }
 
-  .nextPageBtn {
+  .pageBtn {
     border: none;
-    background-color: $lightgrey;
     color: $white;
-    padding: 12px;
-    font-size: 2.5rem;
+    padding: 8px;
+    font-size: 2.25rem;
     width: 100%;
+    background-color: $lightgrey;
+    display: block;
+    &:hover {
+      background-color: $lightblack;
+    }
   }
-
 
 }

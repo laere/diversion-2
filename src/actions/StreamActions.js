@@ -52,11 +52,11 @@ export const fetch = ({endpoint}) => {
   };
 }
 
-export const streamPagination = (nextPageUrl) => {
+export const streamPagination = (url) => {
   return (dispatch) => {
     dispatch(request());
 
-    return axios.get(nextPageUrl)
+    return axios.get(url)
       .then(res => {
         dispatch(receive(STREAMS_SUCCESS, res.data));
       })

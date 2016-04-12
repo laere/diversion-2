@@ -11,7 +11,7 @@ class StreamsContainer extends React.Component {
     nextPageUrl: PropTypes.string,
     fetchStreams: PropTypes.func.isRequired,
     starStream: PropTypes.func.isRequired,
-    nextPage: PropTypes.func.isRequired,
+    paginate: PropTypes.func.isRequired,
     unStarStream: PropTypes.func.isRequired
   };
 
@@ -20,6 +20,7 @@ class StreamsContainer extends React.Component {
     this.handleStarClick = this.handleStarClick.bind(this);
     this.handleNextPageClick = this.handleNextPageClick.bind(this);
     this.handleUnstarClick = this.handleUnstarClick.bind(this);
+    this.handlePrevPageClick = this.handlePrevPageClick.bind(this);
   }
 
   componentDidMount() {
@@ -29,19 +30,24 @@ class StreamsContainer extends React.Component {
     }
   }
 
-  handleStarClick(id) {
+  handleStarClick(e, id) {
     const { starStream } = this.props;
     starStream(id);
   }
 
-  handleUnstarClick(id) {
+  handleUnstarClick(e, id) {
     const { unStarStream } = this.props;
     unStarStream(id);
   }
 
   handleNextPageClick(e) {
-    const { nextPage, nextPageUrl } = this.props;
-    nextPage(nextPageUrl);
+    const { paginate, nextPageUrl } = this.props;
+    paginate(nextPageUrl);
+  }
+
+  handlePrevPageClick(e) {
+    const { paginate, prevPageUrl } = this.props;
+    paginate(prevPageUrl);
   }
 
   render() {
@@ -50,6 +56,7 @@ class StreamsContainer extends React.Component {
       <Loading name='Loading...'/> :
       <Streams
         streams={streams}
+        prevPage={this.handlePrevPageClick}
         nextPage={this.handleNextPageClick}
         unstarClick={this.handleUnstarClick}
         starClick={this.handleStarClick}
@@ -60,7 +67,8 @@ class StreamsContainer extends React.Component {
   const mapStateToProps = (state) => {
     return {
       streams: state.streams,
-      nextPageUrl: state.streams.nextPageUrl
+      nextPageUrl: state.streams.nextPageUrl,
+      prevPageUrl: state.streams.prevPageUrl
     }
   }
 
@@ -69,7 +77,7 @@ class StreamsContainer extends React.Component {
       fetchStreams: (endpoint) => dispatch(fetch(STREAMS_URL)),
       starStream: (id) => dispatch(star(id)),
       unStarStream: (id) => dispatch(unStar(id)),
-      nextPage: (nextPageUrl) => dispatch(streamPagination(nextPageUrl))
+      paginate: (url) => dispatch(streamPagination(url))
     }
   }
 

@@ -27,7 +27,10 @@ export default class Streams extends Component {
     return (
       <MainContent>
         <Heading style="streamsHeader header" header="Streams"/>
-        <input type="submit" className="nextPageBtn" onClick={this.props.nextPage} value="Next" />
+        <div>
+          <input type="submit" className="pageBtn" onClick={this.props.prevPage} value="Back" />
+          <input type="submit" className="pageBtn" onClick={this.props.nextPage} value="Next" />
+        </div>
         <ul className="streamsList">
           {streamItems}
         </ul>
@@ -38,7 +41,8 @@ export default class Streams extends Component {
 
 Streams.propTypes = {
   streams: PropTypes.object.isRequired,
-  onClick: PropTypes.func.isRequired,
+  starClick: PropTypes.func.isRequired,
+  unstarClick: PropTypes.func.isRequired,
   key: PropTypes.string,
   id: PropTypes.string,
   game: PropTypes.string,

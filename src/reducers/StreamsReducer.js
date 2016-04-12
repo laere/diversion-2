@@ -1,11 +1,12 @@
 import * as actions from '../actions/StreamActions';
+import dotProp from 'dot-prop-immutable';
 
 const INITIAL_STATE = {
   data: null,
   fetching: true,
   receivedAt: null,
   nextPageUrl: null,
-  pageCount: 0,
+  prevPageUrl: null,
   streamIds: []
 };
 
@@ -27,7 +28,7 @@ export default function(state = INITIAL_STATE, action) {
         receivedAt: Date.now(),
         streamIds: action.data.streams.map(x => x._id),
         nextPageUrl: action.data._links.next,
-        pageCount: state.pageCount + 1,
+        prevPageUrl: action.data._links.prev,
       }
     case actions.STREAMS_FAILURE:
       return {
@@ -36,7 +37,7 @@ export default function(state = INITIAL_STATE, action) {
       }
     case actions.STAR_STREAM:
       if(state.streamIds.find(id => action.id === id)) {
-        let index = state.streamIds.indexOf(action.id);
+          let index = state.streamIds.indexOf(action.id);
         return {
           ...state,
           data: [

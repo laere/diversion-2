@@ -1,4 +1,4 @@
-import * as actions from '../actions/ChannelActions';
+import { CHANNEL_REQUEST, CHANNEL_SUCCESS, CHANNEL_FAILURE } from '../actions/ChannelActions';
 
 const INITIAL_STATE = {
   data: null,
@@ -8,19 +8,19 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
-    case actions.CHANNEL_REQUEST:
+    case CHANNEL_REQUEST:
       return {
         ...state,
         fetching: true
       }
-    case actions.CHANNEL_SUCCESS:
+    case CHANNEL_SUCCESS:
       return {
         ...state,
         data: action.data,
         fetching: false,
         received: Date.now()
       }
-    case actions.CHANNEL_FAILURE:
+    case CHANNEL_FAILURE:
       return {
         ...state,
         fetching: false
