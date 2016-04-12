@@ -9,6 +9,9 @@ import Thunk from 'redux-thunk';
 import Promise from 'redux-promise';
 // ROUTING METHODS
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+// LOCAL STORAGE
+import persistState from 'redux-localstorage';
+
 // CONTAINERS
 import App from './app/app';
 import Home from './components/Home';
@@ -17,8 +20,10 @@ import Streams from './containers/StreamsContainer';
 import Videos from './containers/VideosContainer';
 import Channels from './containers/ChannelsContainer';
 import Search from './containers/SearchContainer';
+import Favs from './containers/FavoritesContainer';
 //REDUCERS
 import rootReducer from './reducers/RootReducer';
+
 // Store with middleware.
 const createStoreWithMiddleware = compose(
   applyMiddleware(Thunk, Promise),
@@ -38,6 +43,7 @@ ReactDOM.render(
         <Route path="videos" component={Videos} />
         <Route path="channels" component={Channels} />
         <Route path="search" component={Search} />
+        <Route path="favorites" component={Favs} />
       </Route>
     </Router>
   </Provider>,

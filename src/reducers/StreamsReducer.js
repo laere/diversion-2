@@ -1,5 +1,4 @@
 import * as actions from '../actions/StreamActions';
-import dotProp from 'dot-prop-immutable';
 
 const INITIAL_STATE = {
   data: null,

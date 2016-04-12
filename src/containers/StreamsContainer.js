@@ -4,6 +4,7 @@ import Loading from '../components/Loading';
 import { connect } from 'react-redux';
 import { fetch, star, unStar, streamPagination } from '../actions/StreamActions';
 import { STREAMS_URL } from '../endpoints/endpoints';
+import { starredItems } from '../selectors/selectors';
 
 class StreamsContainer extends React.Component {
   static propTypes = {
@@ -69,7 +70,8 @@ class StreamsContainer extends React.Component {
     return {
       streams: state.streams,
       nextPageUrl: state.streams.nextPageUrl,
-      prevPageUrl: state.streams.prevPageUrl
+      prevPageUrl: state.streams.prevPageUrl,
+      starredItems: starredItems(state)
     }
   }
 

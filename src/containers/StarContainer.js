@@ -15,7 +15,7 @@ class StarContainer extends React.Component {
 
   const mapDispatchToProps = (dispatch) => {
     return {
-      starStream: (id) => dispatch(star(id))
+      fetchStreams: (endpoint) => dispatch(fetch(STREAMS_URL)),
     }
   }
 

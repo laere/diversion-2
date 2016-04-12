@@ -31,11 +31,11 @@
     input {
       background-color: $lightblack;
       border: none;
-      border-radius: 5px;
+      border-radius: 20px;
       color: $white;
       font-size: 1.5rem;
       padding: 8px;
-      width: 400px;
+      width: 350px;
       @media only screen and (max-width: 430px) {
         width: 250px;
       }
@@ -43,6 +43,16 @@
         outline: none;
       }
     }
+  }
+
+  .favBtn {
+    color: $white;
+    border: none;
+    background-color: $lightblack;
+    margin-right: 24px;
+    border-radius: 20px;
+    padding: 8px 24px;
+    font-size: 1.75rem
   }
 
   .searchbarBtn {

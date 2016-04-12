@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IndexLink } from 'react-router';
+import { IndexLink, Link } from 'react-router';
 
 const Header = ({ onChange }) => {
   return (
@@ -9,6 +9,9 @@ const Header = ({ onChange }) => {
           <h1 className='logo'>Diversion</h1>
         </IndexLink>
         <div>
+          <Link to='favorites'>
+            <input className="favBtn" type="submit" value="Your Favorites"/>
+          </Link>
           <div className="searchbar">
             <input
               type="text"
