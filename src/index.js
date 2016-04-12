@@ -11,7 +11,6 @@ import Promise from 'redux-promise';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 // LOCAL STORAGE
 import persistState from 'redux-localstorage';
-
 // CONTAINERS
 import App from './app/app';
 import Home from './components/Home';
@@ -23,6 +22,7 @@ import Search from './containers/SearchContainer';
 import Favs from './containers/FavoritesContainer';
 //REDUCERS
 import rootReducer from './reducers/RootReducer';
+
 
 // Store with middleware.
 const createStoreWithMiddleware = compose(

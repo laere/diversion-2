@@ -12,6 +12,7 @@
   z-index: 1;
   @media only screen and (max-width: 1400px) {
     flex-flow: column wrap;
+    text-align: center;
     height: auto;
     margin: 0;
     padding: 16px 0;
@@ -52,7 +53,12 @@
     margin-right: 24px;
     border-radius: 20px;
     padding: 8px 24px;
-    font-size: 1.75rem
+    font-size: 1.75rem;
+    @media only screen and (max-width: 1024px) {
+      width: 100%;
+      display: block;
+      margin: 0 auto 16px auto;
+    }
   }
 
   .searchbarBtn {

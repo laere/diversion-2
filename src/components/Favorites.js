@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Heading from '../components/Heading';
 import MainContent from '../components/MainContent';
 import StreamsListItem from '../components/StreamsListItem';
@@ -30,3 +30,15 @@ export default class Favorites extends Component {
     );
   }
 }
+
+Favorites.propTypes = {
+  starredItems: PropTypes.array.isRequired,
+  key: PropTypes.string,
+  id: PropTypes.string,
+  game: PropTypes.string,
+  name: PropTypes.string,
+  url: PropTypes.string,
+  image: PropTypes.string,
+  views: PropTypes.number,
+  viewers: PropTypes.number
+};
