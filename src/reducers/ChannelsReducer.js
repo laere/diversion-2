@@ -25,6 +25,7 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         fetching: false
       }
+
     default:
       return state;
   }

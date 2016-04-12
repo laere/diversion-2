@@ -6,19 +6,17 @@ import StreamsListItem from '../components/StreamsListItem';
 export default class Search extends Component {
   render() {
     const { searchResults } = this.props;
-    let resultItems = searchResults.data.streams.map((stream) => {
-      return (
-        <StreamsListItem
-          key={stream._id}
-          game={stream.channel.game}
-          image={stream.preview.medium}
-          url={stream.channel.url}
-          name={stream.channel.display_name}
-          viewers={stream.viewers}
-          followers={stream.channel.followers}
-          views={stream.channel.views} />
-      );
-    });
+    let resultItems = searchResults.data.streams.map(stream =>
+      <StreamsListItem
+        key={stream._id}
+        game={stream.channel.game}
+        image={stream.preview.medium}
+        url={stream.channel.url}
+        name={stream.channel.display_name}
+        viewers={stream.viewers}
+        followers={stream.channel.followers}
+        views={stream.channel.views}
+      />).includes()
 
     return (
       <MainContent>

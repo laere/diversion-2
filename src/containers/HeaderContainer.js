@@ -38,7 +38,7 @@ class HeaderContainer extends React.Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     searchChannels: (input) => fetchChannel({endpoint:`https://api.twitch.tv/kraken/channels/${input}`}),
-    searchStreams: (input) => fetchSearchResults({endpoint:`https://api.twitch.tv/kraken/search/streams?limit=100&suggest=true&live=true&q=${input}`})
+    searchStreams: (input) => fetchSearchResults({endpoint:`https://api.twitch.tv/kraken/search/streams?limit=100&&live=true&q=${input}`})
   }
 }
 

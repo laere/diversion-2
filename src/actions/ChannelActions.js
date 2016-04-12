@@ -5,16 +5,6 @@ export const CHANNEL_SUCCESS = 'CHANNEL_SUCCESS';
 export const CHANNEL_FAILURE = 'CHANNEL_FAILURE';
 export const STAR_CHANNEL = 'STAR_CHANNEL';
 
-export const star = (id, mediaType) => {
-  return (dispatch) => {
-    dispatch({
-      type: STAR_CHANNEL,
-      id,
-      mediaType
-    })
-  }
-}
-
 export const request = () => {
   return {
     type: CHANNEL_REQUEST
@@ -44,7 +34,7 @@ export const fetchChannel = ({endpoint}) => {
   };
 }
 
-export const fetchChannelEmotes = (url) => {
+export const fetchEmotes = (url) => {
   return (dispatch) => {
     dispatch(request());
 
