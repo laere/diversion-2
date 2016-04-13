@@ -33,8 +33,7 @@ class StreamsContainer extends React.Component {
   }
 
   handleStarClick(e, id) {
-    const { starStream, savedItems } = this.props;
-    savedItems();
+    const { starStream } = this.props;
     starStream(id);
   }
 
@@ -81,8 +80,7 @@ class StreamsContainer extends React.Component {
       fetchStreams: (endpoint) => dispatch(fetch(STREAMS_URL)),
       starStream: (id) => dispatch(star(id)),
       unStarStream: (id) => dispatch(unStar(id)),
-      paginate: (url) => dispatch(streamPagination(url)),
-      savedItems: () => dispatch(saveToLocalStorage())
+      paginate: (url) => dispatch(streamPagination(url))
     }
   }
 

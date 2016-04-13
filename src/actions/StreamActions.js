@@ -66,22 +66,3 @@ export const streamPagination = (url) => {
     });
   };
 }
-
-const saveToLocalStorage = (fn) => {
-  return (...args) => {
-    return (disptach, getState) => {
-      dispatch(fn(...args));
-      localStorage.setItem('starred items', JSON.stringify(getState().starredItems));
-      console.log(JSON.stringify(getState().starredItems));
-    }
-  }
-}
-
-const _saveItem = (key, value) => {
-  return {
-    type: SAVE_ITEM,
-    payload: {key, value}
-  }
-}
-
-export const saveStarredItems = saveToLocalStorage(_saveItem);

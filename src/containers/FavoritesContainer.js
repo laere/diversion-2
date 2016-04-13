@@ -8,6 +8,11 @@ class FavoritesContainer extends React.Component {
     starredItems: PropTypes.array
   };
 
+  componentDidMount() {
+    const { starredItems } = this.props;
+    JSON.parse(localStorage.getItem(starredItems));
+  }
+
   render() {
       const { starredItems } = this.props;
       return (

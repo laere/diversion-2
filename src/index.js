@@ -9,8 +9,6 @@ import Thunk from 'redux-thunk';
 import Promise from 'redux-promise';
 // ROUTING METHODS
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-// LOCAL STORAGE
-import persistState from 'redux-localstorage';
 // CONTAINERS
 import App from './app/app';
 import Home from './components/Home';
@@ -23,13 +21,27 @@ import Favs from './containers/FavoritesContainer';
 //REDUCERS
 import rootReducer from './reducers/RootReducer';
 
+import * as storage from 'redux-storage';
+const reducer = storage.reducer(rootReducer);
+
+import createEngine from 'redux-storage-engine-localstorage';
+const engine = createEngine('my-save-key');
+
+
+const middleware = storage.createMiddleware(engine);
 
 // Store with middleware.
 const createStoreWithMiddleware = compose(
-  applyMiddleware(Thunk, Promise),
+  applyMiddleware(Thunk, Promise, middleware),
   window.devToolsExtension ? window.devToolsExtension() : (f) => f
 )(createStore);
-const store = createStoreWithMiddleware(rootReducer);
+
+const store = createStoreWithMiddleware(reducer);
+
+const load = storage.createLoader(engine);
+load(store)
+  .then(newState => console.log('Loaded state:', newState))
+  .catch(() => console.log('Failed to load previous state'));
 
 // const basePath = location.hostname === 'localhost' ? '/' : '/diversion-2/'
 
