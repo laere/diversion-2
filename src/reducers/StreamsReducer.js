@@ -1,5 +1,8 @@
 import * as actions from '../actions/StreamActions';
 
+
+// const initialPersistantState = Object.assign({}, INITIAL_STATE, JSON.parse(localStorage.getItem('starred items')));
+
 const INITIAL_STATE = {
   data: null,
   fetching: true,
@@ -9,6 +12,8 @@ const INITIAL_STATE = {
   streamIds: [],
   starredItems: []
 };
+
+
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
@@ -65,6 +70,8 @@ export default function(state = INITIAL_STATE, action) {
             ]
           };
         }
+    case actions.SAVE_ITEM:
+      return state;
     default:
       return state;
     }

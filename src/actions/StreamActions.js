@@ -6,6 +6,7 @@ export const STREAMS_FAILURE = 'STREAMS_FAILURE';
 export const STAR_STREAM = 'STAR_STREAM';
 export const UNSTAR_STREAM = 'UNSTAR_STREAM';
 export const NEXT_PAGE = 'NEXT_PAGE';
+export const SAVE_ITEM = 'SAVE_ITEM';
 
 export const star = (id) => {
   return (dispatch) => {
@@ -43,12 +44,12 @@ export const fetch = ({endpoint}) => {
     dispatch(request());
 
     return axios.get(endpoint)
-      .then(res => {
-        dispatch(receive(STREAMS_SUCCESS, res.data));
-      })
-      .catch(res => {
-        dispatch(receive(STREAMS_FAILURE));
-      });
+    .then(res => {
+      dispatch(receive(STREAMS_SUCCESS, res.data));
+    })
+    .catch(res => {
+      dispatch(receive(STREAMS_FAILURE));
+    });
   };
 }
 
@@ -57,11 +58,30 @@ export const streamPagination = (url) => {
     dispatch(request());
 
     return axios.get(url)
-      .then(res => {
-        dispatch(receive(STREAMS_SUCCESS, res.data));
-      })
-      .catch(res => {
-        dispatch(receive(STREAMS_FAILURE));
-      });
+    .then(res => {
+      dispatch(receive(STREAMS_SUCCESS, res.data));
+    })
+    .catch(res => {
+      dispatch(receive(STREAMS_FAILURE));
+    });
   };
 }
+
+const saveToLocalStorage = (fn) => {
+  return (...args) => {
+    return (disptach, getState) => {
+      dispatch(fn(...args));
+      localStorage.setItem('starred items', JSON.stringify(getState().starredItems));
+      console.log(JSON.stringify(getState().starredItems));
+    }
+  }
+}
+
+const _saveItem = (key, value) => {
+  return {
+    type: SAVE_ITEM,
+    payload: {key, value}
+  }
+}
+
+export const saveStarredItems = saveToLocalStorage(_saveItem);

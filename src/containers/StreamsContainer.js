@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Streams from '../components/Streams';
 import Loading from '../components/Loading';
 import { connect } from 'react-redux';
-import { fetch, star, unStar, streamPagination } from '../actions/StreamActions';
+import { fetch, star, unStar, streamPagination, saveToLocalStorage } from '../actions/StreamActions';
 import { STREAMS_URL } from '../endpoints/endpoints';
 import { starredItems } from '../selectors/selectors';
 
@@ -33,7 +33,8 @@ class StreamsContainer extends React.Component {
   }
 
   handleStarClick(e, id) {
-    const { starStream } = this.props;
+    const { starStream, savedItems } = this.props;
+    savedItems();
     starStream(id);
   }
 
@@ -80,7 +81,8 @@ class StreamsContainer extends React.Component {
       fetchStreams: (endpoint) => dispatch(fetch(STREAMS_URL)),
       starStream: (id) => dispatch(star(id)),
       unStarStream: (id) => dispatch(unStar(id)),
-      paginate: (url) => dispatch(streamPagination(url))
+      paginate: (url) => dispatch(streamPagination(url)),
+      savedItems: () => dispatch(saveToLocalStorage())
     }
   }
 
