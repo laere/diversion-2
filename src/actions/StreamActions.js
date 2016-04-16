@@ -17,7 +17,7 @@ export const star = (id) => {
   }
 }
 
-export const unStar = (id) => {
+export const unstar = (id) => {
   return (dispatch) => {
     dispatch({
       type: UNSTAR_STREAM,

@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import Heading from '../components/Heading';
 import MainContent from '../components/MainContent';
-import StreamsListItem from '../components/StreamsListItem';
+import FavoritesListItem from '../components/FavoritesListItem';
 
 export default class Favorites extends Component {
   render() {
-    const { starredItems } = this.props;
-    let streamItems = starredItems.map(stream => {
+    const { starredItems, unstarClick } = this.props;
+    const streamItems = starredItems.map((stream, i) => {
       return (
-        <StreamsListItem
+        <FavoritesListItem
           key={stream._id}
           id={stream._id}
           game={stream.channel.game}
@@ -17,6 +17,7 @@ export default class Favorites extends Component {
           name={stream.channel.display_name}
           viewers={stream.viewers}
           views={stream.channel.views}
+          unstarClick={unstarClick}
         />
       );
     })

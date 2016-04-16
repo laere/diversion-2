@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import Favorites from '../components/Favorites';
 import { connect } from 'react-redux';
+import { unstar } from '../actions/StreamActions';
 import { starredItems } from '../selectors/selectors';
 
 class FavoritesContainer extends React.Component {
@@ -8,15 +9,22 @@ class FavoritesContainer extends React.Component {
     starredItems: PropTypes.array
   };
 
-  componentDidMount() {
-    const { starredItems } = this.props;
-    JSON.parse(localStorage.getItem(starredItems));
+  constructor(props) {
+    super(props);
+    this.handleUnstarClick = this.handleUnstarClick.bind(this);
+  }
+
+  handleUnstarClick(e, id) {
+    const { unstarStream } = this.props;
+    unstarStream(id);
   }
 
   render() {
       const { starredItems } = this.props;
       return (
-        <Favorites starredItems={starredItems}/>
+        <Favorites
+          unstarClick={this.handleUnstarClick}
+          starredItems={starredItems}/>
       );
     }
   }
@@ -27,4 +35,10 @@ class FavoritesContainer extends React.Component {
     }
   }
 
-  export default connect(mapStateToProps)(FavoritesContainer);
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      unstarStream: (id) => dispatch(unstar(id))
+    }
+  }
+
+  export default connect(mapStateToProps, mapDispatchToProps)(FavoritesContainer);

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-const StreamsListItem = ({ id, game, name, url, image, views, viewers, starClick, unstarClick, starred }) => {
+const FavoritesListItem = ({ id, game, name, url, image, views, viewers, unstarClick, starred }) => {
   return (
     <div className="contentListItem">
       <span>{game}</span>
@@ -13,7 +13,7 @@ const StreamsListItem = ({ id, game, name, url, image, views, viewers, starClick
         <span>{viewers} viewers on <strong>{name}</strong></span>
         <button
           className={starred ? 'starred' : 'notStarred'}
-          onClick={starred ? (e) => unstarClick(e, id) : (e) => starClick(e, id)}>
+          onClick={(e) => unstarClick(e, id)}>
           <i className="fa fa-star fa-lg"></i>
         </button>
       </div>
@@ -21,7 +21,7 @@ const StreamsListItem = ({ id, game, name, url, image, views, viewers, starClick
   );
 }
 
-StreamsListItem.propTypes = {
+FavoritesListItem.propTypes = {
   starClick: PropTypes.func,
   unstarClick: PropTypes.func,
   game: PropTypes.string,
@@ -32,4 +32,4 @@ StreamsListItem.propTypes = {
   viewers: PropTypes.number
 };
 
-export default StreamsListItem;
+export default FavoritesListItem;

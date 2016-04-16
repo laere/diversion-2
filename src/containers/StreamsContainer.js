@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import Streams from '../components/Streams';
 import Loading from '../components/Loading';
 import { connect } from 'react-redux';
-import { fetch, star, unStar, streamPagination, saveToLocalStorage } from '../actions/StreamActions';
+import { fetch, star, unstar, streamPagination } from '../actions/StreamActions';
 import { STREAMS_URL } from '../endpoints/endpoints';
-import { starredItems } from '../selectors/selectors';
+import { starredItems, nextPageUrl, prevPageUrl } from '../selectors/selectors';
 
 class StreamsContainer extends React.Component {
   static propTypes = {
@@ -14,7 +14,7 @@ class StreamsContainer extends React.Component {
     fetchStreams: PropTypes.func.isRequired,
     starStream: PropTypes.func.isRequired,
     paginate: PropTypes.func.isRequired,
-    unStarStream: PropTypes.func.isRequired
+    unstarStream: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -38,8 +38,8 @@ class StreamsContainer extends React.Component {
   }
 
   handleUnstarClick(e, id) {
-    const { unStarStream } = this.props;
-    unStarStream(id);
+    const { unstarStream } = this.props;
+    unstarStream(id);
   }
 
   handleNextPageClick(e) {
@@ -69,8 +69,8 @@ class StreamsContainer extends React.Component {
   const mapStateToProps = (state) => {
     return {
       streams: state.streams,
-      nextPageUrl: state.streams.nextPageUrl,
-      prevPageUrl: state.streams.prevPageUrl,
+      nextPageUrl: nextPageUrl(state),
+      prevPageUrl: prevPageUrl(state),
       starredItems: starredItems(state)
     }
   }
@@ -79,7 +79,7 @@ class StreamsContainer extends React.Component {
     return {
       fetchStreams: (endpoint) => dispatch(fetch(STREAMS_URL)),
       starStream: (id) => dispatch(star(id)),
-      unStarStream: (id) => dispatch(unStar(id)),
+      unstarStream: (id) => dispatch(unstar(id)),
       paginate: (url) => dispatch(streamPagination(url))
     }
   }

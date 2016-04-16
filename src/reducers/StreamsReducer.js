@@ -1,7 +1,6 @@
 import * as actions from '../actions/StreamActions';
-
-
-// const initialPersistantState = Object.assign({}, INITIAL_STATE, JSON.parse(localStorage.getItem('starred items')));
+import dotProp from 'dot-prop-immutable';
+import { findIndex } from 'lodash';
 
 const INITIAL_STATE = {
   data: null,
@@ -9,11 +8,9 @@ const INITIAL_STATE = {
   receivedAt: null,
   nextPageUrl: null,
   prevPageUrl: null,
-  streamIds: [],
-  starredItems: []
+  starredItems: [],
+  streamIds: []
 };
-
-
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
@@ -31,48 +28,27 @@ export default function(state = INITIAL_STATE, action) {
         }),
         fetching: false,
         receivedAt: Date.now(),
-        streamIds: action.data.streams.map(x => x._id),
         nextPageUrl: action.data._links.next,
         prevPageUrl: action.data._links.prev,
+        streamIds: action.data.streams.map(x => x._id)
       }
     case actions.STREAMS_FAILURE:
       return {
         ...state,
         fetching: false
       }
-    case actions.STAR_STREAM:
-      if(state.streamIds.find(id => action.id === id)) {
-        let index = state.streamIds.indexOf(action.id);
-        return {
-          ...state,
-          starredItems: state.starredItems.concat(state.data[index]),
-          data: [
-            ...state.data.slice(0, index), {
-              ...state.data[index],
-                starred: true
-              },
-              ...state.data.slice(index + 1)
-            ]
-          };
-        }
-    case actions.UNSTAR_STREAM:
-      if(state.streamIds.find(id => action.id === id)) {
-        let index = state.streamIds.indexOf(action.id);
-        return {
-          ...state,
-          starredItems: [...state.starredItems.slice(index)],
-          data: [
-            ...state.data.slice(0, index), {
-              ...state.data[index],
-                starred: false
-              },
-              ...state.data.slice(index + 1)
-            ]
-          };
-        }
-    case actions.SAVE_ITEM:
-      return state;
-    default:
-      return state;
-    }
+      case actions.STAR_STREAM:
+        var index = state.streamIds.indexOf(action.id);
+        state = dotProp.set(state, `data.${index}.starred`, true);
+        state = dotProp.set(state, 'starredItems', starredItems => state.data[index]);
+        return state;
+      case actions.UNSTAR_STREAM:
+        var starredIndex = _.findIndex(state.starredItems, o => o._id === action.id);
+        var index = state.streamIds.indexOf(action.id);
+        state = dotProp.set(state, `data.${index}.starred`, false);
+        state = dotProp.delete(state, `starredItems.${starredIndex}`);
+        return state;
+      default:
+        return state;
   }
+}

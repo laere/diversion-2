@@ -25,8 +25,7 @@ import * as storage from 'redux-storage';
 const reducer = storage.reducer(rootReducer);
 
 import createEngine from 'redux-storage-engine-localstorage';
-const engine = createEngine('my-save-key');
-
+const engine = createEngine('starred items');
 
 const middleware = storage.createMiddleware(engine);
 
