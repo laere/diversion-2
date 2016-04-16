@@ -17,7 +17,10 @@ export default function(state = INITIAL_STATE, action) {
     case VIDEOS_SUCCESS:
       return {
         ...state,
-        data: action.data,
+        data: action.data.videos.map(x => {
+          x['starred'] = false;
+          return x;
+        }),
         fetching: false,
         received: Date.now(),
         videoIds: action.data.videos.map(x => x._id)

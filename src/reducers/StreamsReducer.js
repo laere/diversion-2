@@ -9,7 +9,8 @@ const INITIAL_STATE = {
   nextPageUrl: null,
   prevPageUrl: null,
   starredItems: [],
-  streamIds: []
+  streamIds: [],
+  keyword: ''
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -38,15 +39,15 @@ export default function(state = INITIAL_STATE, action) {
         fetching: false
       }
       case actions.STAR_STREAM:
-        var index = state.streamIds.indexOf(action.id);
-        state = dotProp.set(state, `data.${index}.starred`, true);
+        var starredIndex = state.streamIds.indexOf(action.id);
+        state = dotProp.set(state, `data.${starredIndex}.starred`, true);
         state = dotProp.set(state, 'starredItems', starredItems => [...starredItems, state.data[index]]);
         return state;
       case actions.UNSTAR_STREAM:
         var index = _.findIndex(state.starredItems, o => o._id === action.id);
         var starredIndex = state.streamIds.indexOf(action.id);
-        console.log(starredIndex);
-        console.log(index);
+        console.log('starred index: ' + starredIndex);
+        console.log('delete index: ' + index);
         state = dotProp.set(state, `data.${starredIndex}.starred`, false);
         state = dotProp.delete(state, `starredItems.${index}`);
         return state;

@@ -6,13 +6,14 @@ import GamesListItem from '../components/GamesListItem';
 export default class Games extends Component {
   render() {
     const { games } = this.props;
-    let gamesItems = games.data.top.map(game => {
+    let gamesItems = games.data.map(game => {
       return (
         <GamesListItem
           key={game.game._id}
           name={game.game.name}
           viewers={game.viewers}
           image={game.game.box.large}
+          starred={game.starred}
         />
       );
     });

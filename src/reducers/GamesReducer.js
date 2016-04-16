@@ -19,7 +19,10 @@ export default function(state = INITIAL_STATE, action) {
     case GAMES_SUCCESS:
       return {
         ...state,
-        data: action.data,
+        data: action.data.top.map(x => {
+          x['starred'] = false;
+          return x;
+        }),
         fetching: false,
         received: Date.now(),
         gameIds: action.data.top.map(x => x.game._id),
