@@ -40,13 +40,15 @@ export default function(state = INITIAL_STATE, action) {
       case actions.STAR_STREAM:
         var index = state.streamIds.indexOf(action.id);
         state = dotProp.set(state, `data.${index}.starred`, true);
-        state = dotProp.set(state, 'starredItems', starredItems => state.data[index]);
+        state = dotProp.set(state, 'starredItems', starredItems => [...starredItems, state.data[index]]);
         return state;
       case actions.UNSTAR_STREAM:
-        var starredIndex = _.findIndex(state.starredItems, o => o._id === action.id);
-        var index = state.streamIds.indexOf(action.id);
-        state = dotProp.set(state, `data.${index}.starred`, false);
-        state = dotProp.delete(state, `starredItems.${starredIndex}`);
+        var index = _.findIndex(state.starredItems, o => o._id === action.id);
+        var starredIndex = state.streamIds.indexOf(action.id);
+        console.log(starredIndex);
+        console.log(index);
+        state = dotProp.set(state, `data.${starredIndex}.starred`, false);
+        state = dotProp.delete(state, `starredItems.${index}`);
         return state;
       default:
         return state;
