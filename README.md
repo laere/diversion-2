@@ -8,8 +8,7 @@
 <li>work on search feature for twitch's streams search api endpoints <b>DONE</b></li>
 <li>Make app mobile friendly <b>DONE</b></li1>
 <li>Add pagination <b>DONE</b></li>
-<li>Working on starring system</li>
-<li>Improve performance, code design, and structuring</li>
+<li>Working on starring system <b>Done</b></li>
 </ul>
 
 You can visit the website <a href="http://diversion.tech">here.</a>
