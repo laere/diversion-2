@@ -22,7 +22,6 @@ const FavoritesListItem = ({ id, game, name, url, image, views, viewers, unstarC
 }
 
 FavoritesListItem.propTypes = {
-  starClick: PropTypes.func,
   unstarClick: PropTypes.func,
   game: PropTypes.string,
   name: PropTypes.string,

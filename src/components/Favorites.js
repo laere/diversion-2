@@ -6,10 +6,10 @@ import FavoritesListItem from '../components/FavoritesListItem';
 export default class Favorites extends Component {
   render() {
     const { starredItems, unstarClick } = this.props;
-    const streamItems = starredItems.map((stream, i) => {
+    const favoriteItems = starredItems.map(stream => {
       return (
         <FavoritesListItem
-          key={stream._id}
+          key={'Favorites ' + stream._id}
           id={stream._id}
           game={stream.channel.game}
           image={stream.preview.medium}
@@ -25,7 +25,7 @@ export default class Favorites extends Component {
       <MainContent>
         <Heading style="streamsHeader header" header="Favorites"/>
           <ul className="streamsList">
-            {streamItems}
+            {favoriteItems}
           </ul>
       </MainContent>
     );

@@ -41,7 +41,7 @@ export default function(state = INITIAL_STATE, action) {
       case actions.STAR_STREAM:
         var starredIndex = state.streamIds.indexOf(action.id);
         state = dotProp.set(state, `data.${starredIndex}.starred`, true);
-        state = dotProp.set(state, 'starredItems', starredItems => [...starredItems, state.data[index]]);
+        state = dotProp.set(state, 'starredItems', starredItems => [...starredItems, state.data[starredIndex]]);
         return state;
       case actions.UNSTAR_STREAM:
         var index = _.findIndex(state.starredItems, o => o._id === action.id);

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-const GamesListItem = ({ name, viewers, image, starred }) => {
+const GamesListItem = ({ name, viewers, image }) => {
   return (
     <div className="contentListItem">
       <span>{name}</span>
@@ -17,8 +17,7 @@ const GamesListItem = ({ name, viewers, image, starred }) => {
 GamesListItem.propTypes = {
   name: PropTypes.string,
   image: PropTypes.string,
-  viewers: PropTypes.number,
-  starred: PropTypes.boolean
+  viewers: PropTypes.number
 }
 
 export default GamesListItem;

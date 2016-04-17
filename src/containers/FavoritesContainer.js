@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Favorites from '../components/Favorites';
 import { connect } from 'react-redux';
 import { unstar } from '../actions/StreamActions';
-import { starredItems } from '../selectors/selectors';
 
 class FavoritesContainer extends React.Component {
   static propTypes = {
@@ -31,7 +30,7 @@ class FavoritesContainer extends React.Component {
 
   const mapStateToProps = (state) => {
     return {
-      starredItems: starredItems(state)
+      starredItems: state.streams.starredItems
     }
   }
 

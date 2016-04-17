@@ -4,17 +4,17 @@ import Loading from '../components/Loading';
 import { connect } from 'react-redux';
 import { fetch, star, unstar, streamPagination } from '../actions/StreamActions';
 import { STREAMS_URL } from '../endpoints/endpoints';
-import { starredItems, nextPageUrl, prevPageUrl } from '../selectors/selectors';
 
 class StreamsContainer extends React.Component {
   static propTypes = {
     streams: PropTypes.object.isRequired,
     nextPageUrl: PropTypes.string,
     prevPageUrl: PropTypes.string,
+    starredItems: PropTypes.array,
     fetchStreams: PropTypes.func.isRequired,
     starStream: PropTypes.func.isRequired,
+    unstarStream: PropTypes.func.isRequired,
     paginate: PropTypes.func.isRequired,
-    unstarStream: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -69,9 +69,8 @@ class StreamsContainer extends React.Component {
   const mapStateToProps = (state) => {
     return {
       streams: state.streams,
-      nextPageUrl: nextPageUrl(state),
-      prevPageUrl: prevPageUrl(state),
-      starredItems: starredItems(state)
+      nextPageUrl: state.streams.nextPageUrl,
+      prevPageUrl: state.streams.prevPageUrl
     }
   }
 
