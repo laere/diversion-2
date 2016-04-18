@@ -1,15 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 
-const GamesListItem = ({ name, viewers, image }) => {
+const GamesListItem = ({ game }) => {
   return (
     <div className="contentListItem">
-      <span>{name}</span>
+      <span>{game.game.name}</span>
       <div>
         <a href="#">
-          <img src={image} alt="image" />
+          <img src={game.game.box.large} alt="image" />
         </a>
       </div>
-      <span>{viewers} viewers</span>
+      <span>{game.viewers} viewers</span>
     </div>
   );
 };

@@ -1,19 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 
-const StreamsListItem = ({ id, game, name, url, image, views, viewers, starClick, unstarClick, starred }) => {
+const StreamsListItem = ({ stream, id, unstarClick, starClick }) => {
   return (
     <div className="contentListItem">
-      <span>{game}</span>
+      <span>{stream.channel.game}</span>
       <div className="imagePlaceholder">
-        <a href={url} target="_blank">
-          <img src={image}/>
+        <a href={stream.channel.url} target="_blank">
+          <img src={stream.preview.medium}/>
         </a>
       </div>
       <div>
-        <span>{viewers} viewers on <strong>{name}</strong></span>
+        <span>{stream.viewers} viewers on <strong>{stream.channel.display_name}</strong></span>
         <button
-          className={starred ? 'starred' : 'notStarred'}
-          onClick={starred ? (e) => unstarClick(e, id) : (e) => starClick(e, id)}>
+          className={stream.starred ? 'starred' : 'notStarred'}
+          onClick={stream.starred ? (e) => unstarClick(e, id) : (e) => starClick(e, id)}>
           <i className="fa fa-star fa-lg"></i>
         </button>
       </div>
@@ -22,14 +22,10 @@ const StreamsListItem = ({ id, game, name, url, image, views, viewers, starClick
 }
 
 StreamsListItem.propTypes = {
-  starClick: PropTypes.func,
-  unstarClick: PropTypes.func,
-  game: PropTypes.string,
-  name: PropTypes.string,
-  url: PropTypes.string,
-  image: PropTypes.string,
-  views: PropTypes.number,
-  viewers: PropTypes.number
+  starClick: PropTypes.func.isRequired,
+  unstarClick: PropTypes.func.isRequired,
+  stream: PropTypes.object.isRequired,
+  id: PropTypes.number
 };
 
 export default StreamsListItem;

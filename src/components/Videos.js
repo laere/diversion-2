@@ -6,19 +6,15 @@ import VideosListItem from '../components/VideosListItem';
 export default class Videos extends Component {
   render() {
     const { videos } = this.props;
-    const videosData = videos.data.videos;
-    let videosItems = videosData.map(video => {
-      let shortenTitle = video.title.slice(0, 30) + '...';
-      let newTitle = video.title.length > 30 ? shortenTitle : video.title;
+    const videosItems = videos.data.map(video => {
+      const shortenTitle = video.title.slice(0, 30) + '...';
+      const newTitle = video.title.length > 30 ? shortenTitle : video.title;
       return (
         <VideosListItem
           key={video._id}
-          title={newTitle}
-          link={video.url}
-          image={video.preview}
-          name={video.channel.display_name}
-          views={video.views}
-          />
+          newTitle={newTitle}
+          video={video}
+        />
       );
     });
 
@@ -35,10 +31,5 @@ export default class Videos extends Component {
 
 Videos.propTypes = {
   videos: PropTypes.object.isRequired,
-  key: PropTypes.string,
-  title: PropTypes.string,
-  link: PropTypes.string,
-  name: PropTypes.string,
-  image: PropTypes.string,
-  views: PropTypes.number,
+  newTitle: PropTypes.string,
 };

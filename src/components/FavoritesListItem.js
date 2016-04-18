@@ -1,18 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 
-const FavoritesListItem = ({ id, game, name, url, image, views, viewers, unstarClick, starred }) => {
+const FavoritesListItem = ({ stream, id, unstarClick }) => {
   return (
     <div className="contentListItem">
-      <span>{game}</span>
+      <span>{stream.channel.game}</span>
       <div className="imagePlaceholder">
-        <a href={url} target="_blank">
-          <img src={image}/>
+        <a href={stream.channel.url} target="_blank">
+          <img src={stream.preview.medium}/>
         </a>
       </div>
       <div>
-        <span>{viewers} viewers on <strong>{name}</strong></span>
+        <span>{stream.viewers} viewers on <strong>{stream.channel.display_name}</strong></span>
         <button
-          className={starred ? 'starred' : 'notStarred'}
+          className={stream.starred ? 'starred' : 'notStarred'}
           onClick={(e) => unstarClick(e, id)}>
           <i className="fa fa-star fa-lg"></i>
         </button>
@@ -23,12 +23,8 @@ const FavoritesListItem = ({ id, game, name, url, image, views, viewers, unstarC
 
 FavoritesListItem.propTypes = {
   unstarClick: PropTypes.func,
-  game: PropTypes.string,
-  name: PropTypes.string,
-  url: PropTypes.string,
-  image: PropTypes.string,
-  views: PropTypes.number,
-  viewers: PropTypes.number
+  stream: PropTypes.object.isRequired,
+  id: PropTypes.number
 };
 
 export default FavoritesListItem;
